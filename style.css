@@ -219,7 +219,7 @@ h4 {
 /* Styles für den Bereich Berufserfahrung */
 .work-experience {
     width: 100%;
-    padding: 100px 100px;
+    padding: 100px 100px 25px 100px;
     background-color: #101010; /* Dunkler Hintergrund */
 }
 
@@ -249,7 +249,7 @@ h4 {
 }
 
     .logo img {
-        max-width: 200px;
+        max-width: 230px;
         height: auto;
         transition: transform 0.3s;
     }
@@ -268,20 +268,26 @@ h4 {
     .experience-details h5 {
         color: white;
         font-size: 22px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         text-transform: capitalize;
+    }
+
+    .experience-details h6 {
+        font-size: 16px;
+        color: white;
+        margin-bottom: 20px;
+        font-weight: normal;
     }
 
 .projects {
     background: #101010;
     width: 100%;
-    padding: 100px 0;
+    padding: 25px 0 100px 0;
 }
 
 .title h2 {
     color: white;
     font-size: 65px;
-    width: 1130px;
     margin: 30px auto;
     text-align: center;
 }
