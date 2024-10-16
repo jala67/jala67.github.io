@@ -1,28 +1,31 @@
-﻿*{
+﻿* {
     padding: 0;
     margin: 0;
     font-family: 'Josefin Sans', sans-serif;
     box-sizing: border-box;
 }
 
-/* Apply the hover effect to images inside .about */
-.about img {
-    transition: transform 0.3s; /* Add a smooth transition effect */
+body {
+    background-color: #191919; /* Dunkler Hintergrund für die gesamte Webseite */
 }
 
-    .about img:hover {
-        transform: scale(1.1); /* Increase the size when hovered over */
-    }
+p {
+    color: #d3d3d3; /* Helles Grau für andere Absätze */
+    font-size: 16px;
+    line-height: 27px;
+    margin-bottom: 30px;
+}
 
-/* Apply the hover effect to images inside .card .pra */
+/* Hover-Effekte für Bilder */
+.about img,
 .card .pra img {
-    transition: transform 0.3s; /* Add a smooth transition effect */
+    transition: transform 0.3s; /* Sanfter Übergangseffekt */
 }
 
+    .about img:hover,
     .card .pra img:hover {
-        transform: scale(1.1); /* Increase the size when hovered over */
+        transform: scale(1.1); /* Größe beim Überfahren erhöhen */
     }
-
 
 .hero {
     height: 100vh;
@@ -31,7 +34,7 @@
     z-index: 0;
 }
 
-#particles-js {
+#particles-js, #particles-gallery {
     position: absolute;
     top: 0;
     left: 0;
@@ -41,45 +44,46 @@
     z-index: -1;
 }
 
-nav{
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 45px;
-    padding-left: 8%;
-    padding-right: 8%;
+    padding: 45px 8%;
 }
 
-.logo{
+.logo {
     color: white;
     font-size: 35px;
     letter-spacing: 1px;
     cursor: pointer;
 }
 
-span{
+span {
     color: #27ae60;
 }
 
-nav ul li{
+nav ul {
     list-style-type: none;
-    display: inline-block;
-    padding: 10px 25px;
 }
 
-nav ul li a{
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: capitalize;
-}
-
-    nav ul li a:hover{
-        color: #27ae60;
-        transition: .4s;
+    nav ul li {
+        display: inline-block;
+        padding: 10px 25px;
     }
 
-.btn{
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+            nav ul li a:hover {
+                color: #27ae60;
+                transition: .4s;
+            }
+
+.btn {
     background-color: #27ae60;
     color: white;
     text-decoration: none;
@@ -90,34 +94,35 @@ nav ul li a{
     transition: transform .4s;
 }
 
-    .btn:hover{
+    .btn:hover {
         transform: scale(1.2);
     }
 
-.content{
+.content {
     position: absolute;
     top: 50%;
     left: 8%;
     transform: translateY(-50%);
 }
 
-h1{
+h1 {
     color: white;
-    margin: 20px 0px 20px;
+    margin: 20px 0;
     font-size: 75px;
 }
 
-h3{
+h3 {
     color: white;
     font-size: 25px;
     margin-bottom: 50px;
 }
 
-h4{
+h4 {
     color: #fcfc;
     letter-spacing: 2px;
     font-size: 20px;
 }
+
 
 .newsletter {
     width: 380px;
@@ -135,8 +140,8 @@ h4{
     color: #27ae60;
     text-decoration: none;
     cursor: pointer;
-    margin: 0; /* Remove all margins */
-    float: left; /* Align the button to the left */
+    margin: 0;
+    float: left;
 }
 
     .mail-button:hover {
@@ -145,45 +150,64 @@ h4{
         transition: background-color 0.4s;
     }
 
-.about{
+.about {
+    display: flex; /* Flexbox verwenden */
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: space-between; /* Abstand zwischen Bild und Text */
     width: 100%;
     padding: 100px 10px;
     background-color: #191919;
 }
 
-    .about img{
-        height: auto;
-        width: 430px;
+    .about img {
+        width: 30%; /* Bildgröße responsive machen */
+        max-width: 430px; /* Maximale Breite beibehalten */
+        height: auto; /* Höhe automatisch anpassen */
+        margin-right: 20px; /* Mindestabstand zum Text */
     }
 
-    .about-text{
-        width: 550px;
+.about-text {
+    width: 100%; /* Textbereich auch responsive machen */
+    max-width: 550px; /* Maximale Breite für den Textbereich */
+}
+
+    .about-text h2 {
+        color: white;
+        font-size: 75px;
+        text-transform: capitalize;
+        margin-bottom: 20px;
     }
 
-        .about-text h2{
-            color: white;
-            font-size: 75px;
-            text-transform: capitalize;
-            margin-bottom: 20px;
-        }
+    .about-text h5 {
+        color: white;
+        letter-spacing: 2px;
+        font-size: 22px;
+        margin-bottom: 25px;
+        text-transform: capitalize;
+    }
 
-        .about-text h5 {
-            color: white;
-            letter-spacing: 2px;
-            font-size: 22px;
-            margin-bottom: 25px;
-            text-transform: capitalize;
-        }
+    .about-text p {
+        color: #fcfc;
+        letter-spacing: 1px;
+        line-height: 20px;
+        font-size: 18px;
+        margin-bottom: 45px;
+    }
 
-        .about-text p{
-            color: #fcfc;
-            letter-spacing: 1px;
-            line-height: 20px;
-            font-size: 18px;
-            margin-bottom: 45px;
-        }
+/* Medienabfragen für Responsivität */
+@media (max-width: 430px) {
+    .about {
+        flex-direction: column; /* Layout für mobile Geräte anpassen */
+        align-items: center; /* Zentrierung */
+    }
 
-.main{
+        .about img {
+            margin-right: 0; /* Abstand entfernen bei vertikaler Anordnung */
+            margin-bottom: 20px; /* Abstand unter dem Bild */
+        }
+}
+
+.main {
     width: 1130px;
     max-width: 95%;
     margin: 0 auto;
@@ -192,13 +216,69 @@ h4{
     justify-content: space-around;
 }
 
-.projects{
-    background: #101010;
+/* Styles für den Bereich Berufserfahrung */
+.work-experience {
     width: 100%;
-    padding: 100px 0px;
+    padding: 100px 100px;
+    background-color: #101010; /* Dunkler Hintergrund */
 }
 
-.title h2{
+    .work-experience h2 {
+        color: white;
+        font-size: 3em;
+        margin-bottom: 50px;
+        text-align: left;
+    }
+
+.experience-item-wrapper {
+    background-color: #191919;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.experience-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    flex: 1;
+    text-align: center;
+}
+
+    .logo img {
+        max-width: 200px;
+        height: auto;
+        transition: transform 0.3s;
+    }
+
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+
+.experience-details {
+    flex: 2;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 10%;
+}
+
+    .experience-details h5 {
+        color: white;
+        font-size: 22px;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+    }
+
+.projects {
+    background: #101010;
+    width: 100%;
+    padding: 100px 0;
+}
+
+.title h2 {
     color: white;
     font-size: 65px;
     width: 1130px;
@@ -215,7 +295,7 @@ h4{
 
 .card {
     height: 1050px;
-    width: 45%; /* Adjust the width as needed */
+    width: 45%;
     margin: 20px;
     padding: 20px 35px;
     background: #191919;
@@ -225,11 +305,10 @@ h4{
     text-align: center;
 }
 
-    .card i{
+    .card i {
         font-size: 50px;
         display: block;
-        text-align: center;
-        margin: 25px 0px;
+        margin: 25px 0;
         color: #27ae60;
     }
 
@@ -254,22 +333,17 @@ h4{
         padding-top: 20px;
         text-transform: uppercase;
         text-align: left;
-        color: #27ae60; /* Set subheading color to green */
+        color: #27ae60;
     }
 
-    .card .pra img {
-        max-width: 80%;
-        height: auto;
-        padding: 10px;
-    }
-
+    .card .pra img,
     .card .pra .video {
         max-width: 80%;
         height: auto;
         padding: 10px;
     }
 
-    .card .pra .logo{
+    .card .pra .logo {
         width: 40%;
         padding: 3px;
     }
@@ -291,7 +365,7 @@ h4{
         cursor: pointer;
     }
 
-h5{
+h5 {
     color: white;
     font-size: 27px;
     margin-bottom: 25px;
@@ -363,7 +437,7 @@ h5{
             text-align: center;
         }
 
-.contact-me{
+.contact-me {
     width: 100%;
     height: 250px;
     background: #191919;
@@ -382,17 +456,40 @@ h5{
 
     .contact-me p {
         color: #fcfc;
-        letter-spacing: 2px;
-        line-height: 20px;
-        font-size: 18px;
         margin-bottom: 20px;
-        margin-left: 50px;
+    }
+
+    .contact-me a {
+        color: white;
+        text-decoration: none;
+        padding: 12px 25px;
+        border: 2px solid #27ae60;
+        border-radius: 30px;
+        transition: background-color 0.4s;
+    }
+
+        .contact-me a:hover {
+            background-color: #27ae60;
+            color: #fff;
+        }
+
+.footer {
+    background-color: #191919;
+    padding: 30px 0;
+    text-align: center;
+}
+
+    .footer p {
+        color: #fcfc;
+        font-size: 14px;
+        margin-bottom: 10px;
     }
 
 .gallery {
     position: relative;
     z-index: 0;
     padding: 100px 10px;
+    text-align: center;
 }
 
     .gallery h2 {
@@ -404,7 +501,7 @@ h5{
         text-transform: capitalize;
     }
 
-#particles-gallery{
+#particles-gallery {
     position: absolute;
     top: 0;
     left: 0;
@@ -413,22 +510,6 @@ h5{
     background-color: #000000;
     z-index: -1;
 }
-
-.gallery {
-    position: relative;
-    z-index: 0;
-    padding: 100px 10px;
-    text-align: center;
-}
-
-    .gallery h2 {
-        color: white;
-        font-size: 65px;
-        font-weight: bold;
-        margin-bottom: 25px;
-        text-align: center;
-        text-transform: capitalize;
-    }
 
 .gallery-container {
     display: flex;
@@ -446,7 +527,6 @@ h5{
     width: 330px;
     position: absolute;
     transition: transform .5s;
-    
     background-size: contain;
     transform-style: preserve-3d; /* Preserve 3D transformations */
     backface-visibility: hidden; /* Hide backfaces */
@@ -541,34 +621,3 @@ h5{
 .gallery-controls-next:hover::before {
     right: -40px;
 }
-
-    /* For Internet Explorer */
-    body {
-        scrollbar-face-color: #333;
-        scrollbar-shadow-color: #333;
-        scrollbar-highlight-color: #333;
-        scrollbar-3dlight-color: #333;
-        scrollbar-darkshadow-color: #333;
-        scrollbar-track-color: #333;
-        scrollbar-arrow-color: #fff;
-    }
-
-/* Hide the default scrollbar */
-body::-webkit-scrollbar {
-    width: 12px;
-}
-
-/* Track */
-body::-webkit-scrollbar-track {
-    background: #222;
-}
-
-/* Handle */
-body::-webkit-scrollbar-thumb {
-    background: #555;
-}
-
-    /* Handle on hover */
-    body::-webkit-scrollbar-thumb:hover {
-        background: #777;
-    }

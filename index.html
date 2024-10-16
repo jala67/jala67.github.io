@@ -41,12 +41,42 @@
     <!--About section-->
     <section class="about" id="about">
         <div class="main">
-            <img src="pics/pb.jpg" alt="personal picture"/>
+            <img src="pics/pb.jpg" alt="personal picture" />
             <div class="about-text">
                 <h2>About Me</h2>
                 <h5>Student <span>& Developer</span></h5>
                 <p>I am a student at the University of Applied Sciences Berlin, currently in my fifth semester, pursuing my Bachelor in International Media and Computing. What truly ignites my passion is the dynamic world of software and game development.</p>
-                <p>Alongside my studies, I've gained valuable experience as a working student in software development. In this role, I specialized in implementing functionalities using C# and later transitioned into writing testing scripts in Python. One of my notable achievements was 3D-plotting recorded data from cameras and conducting thorough accuracy analyses.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience section -->
+    <section class="work-experience" id="work-experience">
+        <h2>Work Experience</h2>
+        <div class="experience-item-wrapper">
+            <div class="experience-item">
+                <div class="logo">
+                    <a href="https://www.ant-neuro.com" target="_blank">
+                        <img src="pics/antneuro.png" alt="Ant Neuro Logo" />
+                    </a>
+                </div>
+                <div class="experience-details">
+                    <h5>Working Student in Software Development</h5>
+                    <p>I have gained valuable experience as a working student in software development at Ant Neuro. In this role, I specialized in implementing functionalities using C# and later transitioned into writing testing scripts in Python. One of my notable achievements was 3D-plotting recorded data from cameras and conducting thorough accuracy analyses.</p>
+                </div>
+            </div>
+        </div>
+        <div class="experience-item-wrapper">
+            <div class="experience-item">
+                <div class="logo">
+                    <a href="https://www.d-tt.nl/en/" target="_blank">
+                        <img src="pics/dtt.png" alt="DTT Logo" />
+                    </a>
+                </div>
+                <div class="experience-details">
+                    <h5>Internship at DTT</h5>
+                    <p>I completed a 5-month internship as a Game Developer in Amsterdam, where I worked on various different games using Unity. This experience significantly enhanced my understanding of game mechanics, design, and implementation in a professional environment.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -216,7 +246,6 @@
         <h2>Contact Me</h2>
         <p>
             <i class="fas fa-envelope">&nbsp;</i> Janalauer2003@gmail.com<br>
-                                                                         <br />
             <i class="fas fa-phone">&nbsp;</i> +49 176 43265632
         </p>
     </div>
@@ -261,21 +290,22 @@
         document.addEventListener("DOMContentLoaded", function () {
             particlesJS('particles-gallery', {
                 particles: {
-                number: { value: 50 },
-                color: { value: '#ffffff' },
-                shape: { type: 'circle' },
-                opacity: { value: 0.5, random: false },
-                size: { value: 3, random: true },
-                move: { enable: true, speed: 1, direction: 'none', random: true, straight: false, out_mode: 'out' }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: { enable: false, mode: 'repulse' }, // Disable hover effect
-                    onclick: { enable: false, mode: 'push' }     // Disable click effect
+                    number: { value: 50 },
+                    color: { value: '#ffffff' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.5, random: false },
+                    size: { value: 3, random: true },
+                    move: { enable: true, speed: 1, direction: 'none', random: true, straight: false, out_mode: 'out' }
                 },
-            },
-            retina_detect: true });
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: { enable: false, mode: 'repulse' }, // Disable hover effect
+                        onclick: { enable: false, mode: 'push' }     // Disable click effect
+                    },
+                },
+                retina_detect: true
+            });
         });
 
         //carousel
