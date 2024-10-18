@@ -227,6 +227,7 @@ h4 {
         color: white;
         font-size: 3em;
         margin-bottom: 50px;
+        margin-top: 30px;
         text-align: left;
     }
 
@@ -581,27 +582,22 @@ h5 {
 .gallery-controls {
     display: flex;
     justify-content: center;
-    margin-top: 25px;
+    align-items: center;
+    max-width: 150px;
+    margin: 0 auto;
 }
 
-    .gallery-controls button {
-        background-color: transparent;
-        color: white;
-        border: 0;
+    .gallery-controls span {
+        font-size: 30px; /* Größe der Pfeile */
+        margin: 15px 30px 0 30px; /* Gleichmäßiger Abstand zwischen den Pfeilen */
+        color: #fcfcfc; /* Farbe der Pfeile */
         cursor: pointer;
-        font-size: 30px;
-        margin: 0 50px;
-        padding: 0 12px;
-        text-transform: capitalize;
-        transition: color 0.3s; /* Add transition for hover effect */
+        transition: transform 0.3s ease, color 0.3s ease; /* Weiche Übergänge bei Hover */
     }
 
-        .gallery-controls button:focus {
-            outline: none;
-        }
-
-        .gallery-controls button.clicked {
-            color: #888; /* Text color */
+        .gallery-controls span:hover {
+            color: #c0c0c0; /* Pfeilfarbe bei Hover */
+            transform: scale(1.2); /* Leicht vergrößern bei Hover */
         }
 
 .gallery-controls-previous::before {
