@@ -28,22 +28,23 @@ document.addEventListener("DOMContentLoaded", function () {
     function drawLiquidBlob() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        // Geschwindigkeit halbiert (vorher 0.015) für eine extrem entspannte, edle Bewegung
         time += 0.007; 
 
         // Absolut zentriert auf dem Bildschirm
         const centerX = canvas.width * 0.5;
         const centerY = canvas.height * 0.5;
         
-        // Radius vergrößert (Faktor auf 0.28 angehoben), damit er perfekt hinter den Cards hervorlugt
-        const baseRadius = Math.min(canvas.width, canvas.height) * 0.35;
-
+        // Dynamischer Radius mit Mindestgröße (verhindert das komplette Verschwinden bei schmalem Browser)
+        let computedRadius = Math.min(canvas.width, canvas.height) * 0.35;
+        if (computedRadius < 200) {
+            computedRadius = 200; // Feste Mindestgröße für schmale Fenster
+        }
+        const baseRadius = computedRadius;
         ctx.save();
         ctx.beginPath();
 
         // 360-Grad-Berechnung der flüssigen Wellen-Vektoren
         for (let angle = 0; angle <= Math.PI * 2; angle += 0.02) {
-            // Wellen-Intensität leicht angepasst für sanftere Übergänge
             let offset = Math.sin(angle * 3 + time) * 30;
             offset += Math.cos(angle * 2 - time * 1.5) * 18;
             offset += Math.sin(angle * 5 + time * 0.8) * 10;

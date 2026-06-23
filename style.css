@@ -559,7 +559,4 @@ nav ul li a:hover {
     .experience-header {
         flex-direction: column;
     }
-    .canvas-bg-container {
-        display: none;
-    }
 }
