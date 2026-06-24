@@ -375,7 +375,9 @@ nav ul li a:hover {
     font-weight: 500;
 }
 
-/* Projects Section */
+/* ==========================================================================
+   Projects Section (With Seamles Hardware Morphing)
+   ========================================================================== */
 .projects {
     width: 100%;
     padding: 100px 8%;
@@ -397,27 +399,49 @@ nav ul li a:hover {
 }
 
 .project-card {
-    padding: 35px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s, border-color 0.3s;
+    overflow: hidden;
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px) saturate(160%);
+    -webkit-backdrop-filter: blur(30px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 15px 35px 0 var(--glass-shadow);
+    border-radius: 20px;
+    /* Optimierte, längere Transition-Zeit für das Ausfaden */
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, background-color 0.5s ease;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.18);
+/* Der Trick für das Button-Alignment: Macht den Teaser selbst zur Flex-Box */
+.card-teaser {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Nutzt die volle Höhe der Karte */
+    flex-grow: 1;
 }
 
-.project-card i {
-    font-size: 28px;
+.project-icon {
+    font-size: 36px !important;
     color: var(--white);
-    margin-bottom: 20px;
     opacity: 0.9;
+    margin-bottom: 18px;
+    display: block;
 }
 
-.project-card h5 {
-    margin-bottom: 12px;
+.project-media-preview {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 15px 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-card p.teaser-text {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 15px;
 }
 
 .tech-tags {
@@ -431,14 +455,147 @@ nav ul li a:hover {
     background: rgba(255, 255, 255, 0.04);
     color: var(--text-main);
     padding: 4px 12px;
-    border-radius: 8px;
+    border-radius: 15px;
     font-size: 11px;
     font-weight: 500;
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.project-card .button {
+.card-details {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease 0.1s;
+}
+
+/* ==========================================================================
+   CSS-GRID FOCUS STATES
+   ========================================================================== */
+.projects-grid.grid-single-focus {
+    grid-template-columns: 1fr;
+}
+
+.project-card.expanded {
+    background: rgba(10, 16, 30, 0.85);
+    border-color: rgba(255, 255, 255, 0.2);
+    padding: 45px;
+    z-index: 5;
+    animation: smoothPop 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes smoothPop {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.project-card.expanded .card-teaser {
+    display: none !important;
+}
+
+.project-card.expanded .card-details {
+    display: block;
+    opacity: 1;
+}
+
+.project-card.expanded h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 12px;
+}
+
+/* Inaktive Karten blenden jetzt deutlich softer und verzögert aus */
+.project-card.hidden {
+    opacity: 0;
+    transform: scale(0.93) translateY(40px);
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: none;
+}
+
+/* Knallharte Fixierung für den Button am unteren Kartenrand */
+.project-card .show-more-btn {
+    margin-top: auto; /* Schiebt den Button magisch ganz nach unten, egal wie lang der Text ist */
     align-self: flex-start;
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+    padding: 9px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card .show-more-btn:hover {
+    background: var(--white);
+    color: var(--bg-main);
+    border-color: var(--white);
+}
+
+.project-media-expanded {
+    flex: 0 0 45%;
+    max-width: 450px;
+    height: auto;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.details-content {
+    flex: 1;
+}
+
+.details-content p {
+    font-size: 15px;
+    line-height: 26px;
+    margin-bottom: 25px;
+    color: var(--text-main);
+}
+
+.features-title {
+    color: var(--white);
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.features-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    color: var(--text-muted);
+}
+
+.features-list li {
+    padding: 3px 0;
+    font-size: 14px;
+}
+
+/* Neuer Button-Look: Standard hohl, ausgefüllt bei Hover */
+.project-card .show-more-btn {
+    align-self: flex-start;
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+    padding: 9px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card .show-more-btn:hover {
+    background: var(--white);
+    color: var(--bg-main);
+    border-color: var(--white);
+}
+
+.project-card .action-btn {
+    display: inline-block;
     background: var(--white);
     color: var(--bg-main);
     text-decoration: none;
@@ -446,14 +603,33 @@ nav ul li a:hover {
     padding: 10px 22px;
     border-radius: 20px;
     font-size: 13px;
-    transition: all 0.2s;
+    transition: 0.2s;
 }
 
-.project-card .button:hover {
+.project-card .action-btn:hover {
     background: transparent;
     color: var(--white);
     border: 1px solid var(--white);
 }
+
+.back-btn {
+    background: transparent;
+    border: none;
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: var(--white);
+}
+/* --- BIS HIERHER ERSETZEN --- */
 
 /* Skills Section */
 .skills {

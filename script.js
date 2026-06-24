@@ -84,4 +84,54 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     drawLiquidBlob();
+
+// ==========================================================================
+    // 3. SEAMLESS HARDWARE MORPHING LOGIC (Satisfying Expand Effect)
+    // ==========================================================================
+    const grid = document.getElementById('projects-grid');
+    const cards = document.querySelectorAll('.project-card');
+
+    cards.forEach(card => {
+        const showMoreBtn = card.querySelector('.show-more-btn');
+        const backBtn = card.querySelector('.back-btn');
+
+        // Klick auf "Show More"
+        showMoreBtn.addEventListener('click', () => {
+            // Grid in den Single-Focus Modus schalten
+            grid.classList.add('grid-single-focus');
+
+            // Inaktive Karten ausblenden, aktive Karte expandieren
+            cards.forEach(c => {
+                if (c !== card) {
+                    c.classList.add('hidden');
+                } else {
+                    c.classList.add('expanded');
+                }
+            });
+
+            // Weich zum Sektionsanfang scrollen
+            document.querySelector('.projects .title').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Klick auf "Back to Projects"
+        backBtn.addEventListener('click', () => {
+            // Aktuelle Scrollposition merken, um Hüpfen zu blockieren
+            const persistentScrollY = window.scrollY;
+
+            // Alle Fokus-Klassen entfernen
+            grid.classList.remove('grid-single-focus');
+            cards.forEach(c => {
+                c.classList.remove('expanded');
+                c.classList.remove('hidden');
+            });
+
+            // Bildschirmposition einfrieren
+            window.scrollTo({ top: persistentScrollY, behavior: 'auto' });
+            
+            // Kontrolliert und zentriert zur Ausgangskarte gleiten
+            setTimeout(() => {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 30);
+        });
+    });
 });

@@ -139,73 +139,135 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="projects" id="projects">
+<section class="projects" id="projects">
         <div class="title">
             <h2>My Projects</h2>
         </div>
         
-        <div class="projects-grid">
+        <div class="projects-grid" id="projects-grid">
             
-            <!-- 1. Coppers and Thieves -->
             <div class="project-card glass-card">
-                <div>
-                    <i class="fa-solid fa-gamepad"></i>
+                <div class="card-teaser">
+                    <i class="fa-solid fa-gamepad project-icon"></i>
                     <h5>Coppers and Thieves</h5>
-                    <p>A multiplayer game project focusing on robust network synchronization and architecture. Implemented multiplayer features using Netcode for GameObjects, structural scriptable objects, and advanced network prefab handling under Git version control.</p>
+                    <img src="pics/CT1.png" alt="Coppers and Thieves Preview" class="project-media-preview" />
+                    <p class="teaser-text">A multiplayer game project focusing on robust network synchronization and architecture.</p>
                     <div class="tech-tags">
                         <span class="tag">Unity</span>
                         <span class="tag">C#</span>
                         <span class="tag">Netcode</span>
                         <span class="tag">Git</span>
                     </div>
+                    <button class="button show-more-btn">Show More</button>
                 </div>
-                <a class="button" href="https://github.com/jala67" target="_blank">View on GitHub</a>
+                
+                <div class="card-details">
+                    <button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Projects</button>
+                    <h2>Coppers and Thieves</h2>
+                    <div class="expanded-layout">
+                        <img src="pics/CT1.png" alt="Coppers and Thieves" class="project-media-expanded" />
+                        <div class="details-content">
+                            <p>Implemented multiplayer features using Netcode for GameObjects, structural scriptable objects, and advanced network prefab handling under Git version control. Focuses heavily on clean architecture and smooth state replication.</p>
+                            <a class="button action-btn" href="https://github.com/jala67" target="_blank">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- 2. VR Game: SpellWeaver -->
             <div class="project-card glass-card">
-                <div>
-                    <i class="fa-solid fa-wand-sparkles"></i>
+                <div class="card-teaser">
+                    <i class="fa-solid fa-robot project-icon"></i>
+                    <h5>KYC Process Automation</h5>
+                    <p class="teaser-text">An enterprise-focused Robotic Process Automation (RPA) project designed to automate compliance checks.</p>
+                    <div class="tech-tags">
+                        <span class="tag">UiPath</span>
+                        <span class="tag">RPA</span>
+                        <span class="tag">Automation</span>
+                    </div>
+                    <button class="button show-more-btn">Show More</button>
+                </div>
+                
+                <div class="card-details">
+                    <button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Projects</button>
+                    <h2>KYC Process Automation</h2>
+                    <div class="expanded-layout">
+                        <img src="" alt="KYC Automation" class="project-media-expanded" />
+                        <div class="details-content">
+                            <p>An enterprise-focused Robotic Process Automation (RPA) project designed to automate compliance checks. Developed a stable, end-to-end Know Your Customer (KYC) workflow leveraging the UiPath platform to streamline manual data verification pipelines.</p>
+                            <a class="button action-btn" href="#" style="opacity: 0.3; pointer-events: none;">Internal Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card glass-card">
+                <div class="card-teaser">
+                    <i class="fa-solid fa-explosion project-icon"></i>
+                    <h5>Ray Tracing Engine</h5>
+                    <img src="pics/raytracing.png" alt="Ray Tracing Preview" class="project-media-preview" />
+                    <p class="teaser-text">A custom Java-based raytracer simulating light interaction with 3D scenes.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Computer Graphics</span>
+                        <span class="tag">Ray Marching</span>
+                    </div>
+                    <button class="button show-more-btn">Show More</button>
+                </div>
+                
+                <div class="card-details">
+                    <button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Projects</button>
+                    <h2>Ray Tracing Engine</h2>
+                    <div class="expanded-layout">
+                        <img src="pics/raytracing.png" alt="Ray Tracing Engine" class="project-media-expanded" />
+                        <div class="details-content">
+                            <p>Experience realistic image generation with the Java-based raytracer. This implementation accurately simulates the interaction of light rays with 3D objects in a scene, resulting in captivating visualizations.</p>
+                            <h6 class="features-title">Features</h6>
+                            <ul class="features-list">
+                                <li>Quadrics</li>
+                                <li>Torus with Ray Marching</li>
+                                <li>Shadows</li>
+                                <li>Reflections & Refractions</li>
+                                <li>Diffuse and specular lighting</li>
+                                <li>Constructive Solid Geometry: union, intersection, and difference</li>
+                                <li>Skydome Sphere</li>
+                            </ul>
+                            <a class="button action-btn" href="https://github.com/jala67/RayTracing" target="_blank">Checkout Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card glass-card">
+                <div class="card-teaser">
+                    <i class="fa-solid fa-wand-sparkles project-icon"></i>
                     <h5>VR Game: SpellWeaver</h5>
-                    <p>A Virtual Reality group project exploring Speech-to-Text technology in Unity. Players cast spells by reciting incantations from a spellbook, utilizing an Adapter pattern architecture to ensure modular integration of various STT APIs.</p>
+                    <video class="project-media-preview" autoplay loop muted playsinline>
+                        <source src="pics/showtimeClip.mp4" type="video/mp4">
+                    </video>
+                    <p class="teaser-text">A Virtual Reality group project exploring Speech-to-Text technology in Unity.</p>
                     <div class="tech-tags">
                         <span class="tag">Unity</span>
                         <span class="tag">C#</span>
                         <span class="tag">VR</span>
                         <span class="tag">STT API</span>
                     </div>
+                    <button class="button show-more-btn">Show More</button>
                 </div>
-                <a class="button" href="https://showtime.f4.htw-berlin.de/ss23/bachelor/b5-spellweaver/" target="_blank">Checkout Project</a>
-            </div>
-
-            <!-- 3. Ray Tracing Engine -->
-            <div class="project-card glass-card">
-                <div>
-                    <i class="fa-solid fa-explosion"></i>
-                    <h5>Ray Tracing Engine</h5>
-                    <p>A custom Java-based raytracer simulating light interaction with 3D scenes. Features include shadows, reflections, refractions, diffuse/specular lighting, Constructive Solid Geometry (CSG), and a ray-marched torus implementation.</p>
-                    <div class="tech-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Computer Graphics</span>
-                        <span class="tag">Ray Marching</span>
+                
+                <div class="card-details">
+                    <button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Projects</button>
+                    <h2>VR Game: SpellWeaver</h2>
+                    <div class="expanded-layout">
+                        <video class="project-media-expanded" controls autoplay loop muted>
+                            <source src="pics/showtimeClip.mp4" type="video/mp4">
+                        </video>
+                        <div class="details-content">
+                            <p>Spellweaver: Words of Power is a group project that delves into the realm of Speech-to-Text technology in Virtual Reality. In this captivating Unity game, you step into the shoes of a magician, wielding the power of words. Your task is to accurately recite spells from a spellbook. The correctness of your incantation directly influences the potency of your unleashed spell, determined by the Word Error Rate.</p>
+                            <p>Our project underwent rigorous testing of various STT APIs, ensuring not only seamless integration but also future adaptability through the implementation of the Adapter pattern.</p>
+                            <a class="button action-btn" href="https://showtime.f4.htw-berlin.de/ss23/bachelor/b5-spellweaver/" target="_blank">Checkout Webpage</a>
+                        </div>
                     </div>
                 </div>
-                <a class="button" href="https://github.com/jala67/RayTracing" target="_blank">Checkout Code</a>
-            </div>
-
-            <!-- 4. KYC Automation Process -->
-            <div class="project-card glass-card">
-                <div>
-                    <i class="fa-solid fa-robot"></i>
-                    <h5>KYC Process Automation</h5>
-                    <p>An enterprise-focused Robotic Process Automation (RPA) project designed to automate compliance checks. Developed a stable, end-to-end Know Your Customer (KYC) workflow leveraging the UiPath platform to streamline manual data verification pipelines.</p>
-                    <div class="tech-tags">
-                        <span class="tag">UiPath</span>
-                        <span class="tag">RPA</span>
-                        <span class="tag">Automation</span>
-                    </div>
-                </div>
-                <a class="button" href="#" style="opacity: 0.3; pointer-events: none;">Internal Project</a>
             </div>
 
         </div>
