@@ -1,11 +1,15 @@
 ﻿:root {
-    --dark-gray: #191919;
-    --gray: #262525;
-    --particles-gray: #101010;
-    --green: #27ae60;
-    --purple: #fcfc;
-    --white: #FFFFFF;
-    --light-gray: #e4e4e4;
+    --bg-main: #060913;          /* Tiefes Cyber-Dunkelblau */
+    
+    /* iOS Milchglas */
+    --glass-bg: rgba(15, 23, 42, 0.4); 
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: rgba(0, 0, 0, 0.5);
+    
+    --accent: #06b6d4;           /* Cyan */
+    --white: #ffffff;
+    --text-main: #f8fafc;        /* Weiß */
+    --text-muted: #94a3b8;       /* Slate Grau */
 }
 
 * {
@@ -15,631 +19,723 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: var(--gray); /* Dunkler Hintergrund für die gesamte Webseite */
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    overflow-x: hidden;
+    position: relative;
 }
 
+/* Base Typography */
 p {
-    color: #d3d3d3; /* Helles Grau für andere Absätze */
-    font-size: 16px;
-    line-height: 27px;
-    margin-bottom: 30px;
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 26px;
 }
 
-/* Hover-Effekte für Bilder */
-.about img,
-.card .pra img {
-    transition: transform 0.3s; /* Sanfter Übergangseffekt */
+h1 {
+    color: var(--white);
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin: 10px 0;
 }
 
-    .about img:hover,
-    .card .pra img:hover {
-        transform: scale(1.1); /* Größe beim Überfahren erhöhen */
-    }
+h2 {
+    font-size: 36px;
+    color: var(--white);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
 
+h3 {
+    color: var(--text-muted);
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+h4 {
+    color: var(--accent);
+    letter-spacing: 3px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+h5 {
+    color: var(--white);
+    font-size: 19px;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Procedural Canvas Background (Echter Liquid Blob Layer)
+   ========================================================================== */
+.canvas-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+#liquid-glass-blob {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* ==========================================================================
+   The Liquid Glass Blueprint (iOS-Style Cards)
+   ========================================================================== */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px) saturate(160%);
+    -webkit-backdrop-filter: blur(30px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 15px 35px 0 var(--glass-shadow);
+    border-radius: 20px;
+}
+
+/* Containers */
+.main-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.flex-column {
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ==========================================================================
+   Hero Content & Navigation Fixes
+   ========================================================================== */
 .hero {
     height: 100vh;
     width: 100%;
     position: relative;
-    z-index: 0;
-}
-
-#particles-js, #particles-gallery {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--particles-gray);
-    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Verteilt Nav oben und Content im Center */
+    z-index: 2;
 }
 
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 45px 8%;
+    padding: 35px 8%;
+    position: relative;
+    z-index: 2;
 }
 
 .logo {
     color: var(--white);
-    font-size: 35px;
-    letter-spacing: 1px;
-    cursor: pointer;
+    font-size: 26px;
+    font-weight: 700;
 }
 
-span {
-    color: var(--green);
+nav ul li {
+    display: inline-block;
+    padding: 0 20px;
 }
 
-nav ul {
-    list-style-type: none;
-}
-
-    nav ul li {
-        display: inline-block;
-        padding: 10px 25px;
-    }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: capitalize;
-        }
-
-            nav ul li a:hover {
-                color: var(--green);
-                transition: .4s;
-            }
-
-.btn {
-    background-color: var(--green);
-    color: white;
+nav ul li a {
+    color: var(--text-muted);
     text-decoration: none;
-    border: 2px solid transparent;
-    font-weight: bold;
-    padding: 10px 25px;
-    border-radius: 30px;
-    transition: transform .4s;
+    font-weight: 500;
+    transition: color 0.2s;
 }
 
-    .btn:hover {
-        transform: scale(1.1);
-    }
+nav ul li a:hover {
+    color: var(--white);
+}
+
+/* Sichtbare Umrandung für den Curriculum Vitae Button */
+.btn {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(6, 182, 212, 0.4); /* Sichtbare, cyan-glasige Umrandung */
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--white);
+    color: var(--bg-main);
+    border-color: var(--white);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
 
 .content {
-    position: absolute;
-    top: 50%;
-    left: 8%;
-    transform: translateY(-50%);
-}
-
-h1 {
-    color: var(--white);
-    margin: 20px 0;
-    font-size: 75px;
-}
-
-h3 {
-    color: var(--white);
-    font-size: 25px;
-    margin-bottom: 50px;
-}
-
-h4 {
-    color: var(--purple);
-    letter-spacing: 2px;
-    font-size: 20px;
-}
-
-
-.newsletter {
-    width: 380px;
-    max-width: 100%;
+    margin: auto 0; /* Perfekte vertikale Zentrierung */
+    padding: 0 8%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Zentriert die Schriften mathematisch genau im Raum */
     position: relative;
-    margin-top: 20px;
-    text-align: center;
+    z-index: 2;
 }
 
 .mail-button {
     display: inline-block;
-    padding: 12px 24px;
-    border: 2px solid var(--green);
-    border-radius: 30px;
-    color: var(--green);
+    padding: 14px 35px;
+    background: var(--white);
+    color: var(--bg-main);
     text-decoration: none;
-    cursor: pointer;
-    margin: 0;
-    float: left;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: all 0.3s;
 }
 
-    .mail-button:hover {
-        background-color: var(--green);
-        color: var(--white);
-        transition: background-color 0.4s;
-    }
+.mail-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+}
 
+/* ==========================================================================
+   About Section Fine-Tuning
+   ========================================================================== */
 .about {
-    display: flex; /* Flexbox verwenden */
-    align-items: center; /* Vertikale Zentrierung */
-    justify-content: space-between; /* Abstand zwischen Bild und Text */
     width: 100%;
-    padding: 100px 10px;
-    background-color: var(--gray);
+    padding: 120px 8% 180px 8%; /* Unteres Padding erhöht von 100px auf 180px gegen das Hereinpeaken */
 }
-
-    .about img {
-        width: 30%; /* Bildgröße responsive machen */
-        max-width: 430px; /* Maximale Breite beibehalten */
-        height: auto; /* Höhe automatisch anpassen */
-        margin-right: 20px; /* Mindestabstand zum Text */
-    }
 
 .about-text {
-    width: 100%; /* Textbereich auch responsive machen */
-    max-width: 550px; /* Maximale Breite für den Textbereich */
+    flex: 2;
+    padding: 40px;
 }
 
-    .about-text h2 {
-        color: var(--white);
-        font-size: 75px;
-        text-transform: capitalize;
-        margin-bottom: 20px;
-    }
-
-    .about-text h5 {
-        color: white;
-        letter-spacing: 2px;
-        font-size: 22px;
-        margin-bottom: 25px;
-        text-transform: capitalize;
-    }
-
-    .about-text p {
-        color: var(--purple);
-        letter-spacing: 1px;
-        line-height: 20px;
-        font-size: 18px;
-        margin-bottom: 45px;
-    }
-
-/* Medienabfragen für Responsivität */
-@media (max-width: 430px) {
-    .about {
-        flex-direction: column; /* Layout für mobile Geräte anpassen */
-        align-items: center; /* Zentrierung */
-    }
-
-        .about img {
-            margin-right: 0; /* Abstand entfernen bei vertikaler Anordnung */
-            margin-bottom: 20px; /* Abstand unter dem Bild */
-        }
+.about-text h2 {
+    margin-bottom: 12px; /* Schafft Platz zur folgenden Zeile */
 }
 
-.main {
-    width: 1130px;
-    max-width: 95%;
-    margin: 0 auto;
+.about-text h5 {
+    color: var(--accent);
+    font-size: 15px;
+    margin-top: 5px;      /* Gibt der Zeile Luft nach oben */
+    margin-bottom: 25px;  /* Erhöhter Abstand zum Fließtext darunter */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-text p {
+    margin-bottom: 35px;
+}
+
+.about-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.fact-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.fact-item strong {
+    display: block;
+    color: var(--white);
+    font-size: 11px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.fact-item span {
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.about-profile-wrapper {
+    flex: 1;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 
-/* Styles für den Bereich Berufserfahrung */
+.profile-glass-frame {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    padding: 12px;
+    border-radius: 50%;
+    border: 1px solid var(--glass-border);
+}
+
+.about img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+/* ==========================================================================
+   Work Experience Section Updates (Aligned & Color Logos)
+   ========================================================================= */
 .work-experience {
     width: 100%;
-    padding: 100px 100px 25px 100px;
-    background-color: var(--dark-gray); /* Dunkler Hintergrund */
+    padding: 100px 8% 140px 8%; /* Padding nach unten erhöht für sauberen Übergang */
 }
 
-    .work-experience h2 {
-        color: var(--white);
-        font-size: 3em;
-        margin-bottom: 50px;
-        margin-top: 30px;
-        text-align: left;
-    }
+.work-experience h2 {
+    text-align: center;
+    margin-bottom: 60px;
+}
 
 .experience-item-wrapper {
-    background-color: var(--gray);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 30px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px) saturate(160%);
+    -webkit-backdrop-filter: blur(30px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 15px 35px 0 var(--glass-shadow);
+    border-radius: 20px;
+    padding: 35px 40px;
+    margin: 0 auto 25px auto;
+    max-width: 900px;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.experience-item-wrapper:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.18);
 }
 
 .experience-item {
     display: flex;
     align-items: center;
+    gap: 40px; /* Einheitlicher Abstand zwischen Logo und Text */
+}
+
+/* Feste Breite für die Logo-Spalte, damit alle Texte links perfekt bündig starten */
+.work-experience .logo {
+    flex: 0 0 120px; /* Exakt 120px breit, schrumpft nicht, wächst nicht */
+    display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.logo {
-    flex: 1;
-    text-align: center;
+/* Logos in Originalfarbe, gut sichtbar und harmonisch skaliert */
+.work-experience .logo img {
+    max-width: 100%;
+    max-height: 55px; /* Etwas größer für bessere Erkennbarkeit */
+    object-fit: contain;
+    filter: none;
+    opacity: 0.95; /* Fast volle Deckkraft für klare Sichtbarkeit */
 }
-
-    .logo img {
-        max-width: 230px;
-        height: auto;
-        transition: transform 0.3s;
-    }
-
-        .logo img:hover {
-            transform: scale(1.1);
-        }
 
 .experience-details {
-    flex: 2;
-    text-align: left;
-    margin-left: 20px;
-    margin-right: 10%;
+    flex: 1; /* Nutzt den gesamten restlichen Platz */
 }
 
-    .experience-details h5 {
-        color: var(--white);
-        font-size: 22px;
-        margin-bottom: 20px;
-        text-transform: capitalize;
-    }
-
-    .experience-details h6 {
-        font-size: 16px;
-        color: var(--white);
-        margin-bottom: 20px;
-        font-weight: normal;
-    }
-
-.projects {
-    background: var(--dark-gray);
-    width: 100%;
-    padding: 25px 0 100px 0;
-}
-
-.title h2 {
-    color: white;
-    font-size: 65px;
-    margin: 30px auto;
-    text-align: center;
-}
-
-.box {
+.experience-header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
     flex-wrap: wrap;
-    max-width: 1200px; /* Maximalbreite festlegen */
-    margin: 0 auto; /* Zentriert die Box */
+    gap: 5px;
 }
 
-.card {
-    height: 1050px;
-    width: 45%;
-    flex: 1 1 45%; /* Verhindert, dass die Karten zu breit werden */
-    margin: 20px;
-    max-width: 550px; /* Maximalbreite der Karten */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px 35px;
-    background: var(--gray);
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .projects .card {
-        flex: 1 1 100%; /* Volle Breite auf kleinen Bildschirmen */
-    }
-}
-
-.card i {
-    font-size: 50px;
-    display: block;
-    margin: 25px 0;
-    color: var(--green);
-}
-
-.card .button {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--green);
+.experience-details h5 {
     color: var(--white);
-    text-decoration: none;
-    border: 2px solid transparent;
-    font-weight: bold;
-    padding: 9px 22px;
-    border-radius: 30px;
-    transition: .4s;
+    font-size: 19px;
+    font-weight: 600;
 }
 
-.card h6 {
-    font-size: 22px;
+.experience-details h6 {
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   Projects Section (With Seamles Hardware Morphing)
+   ========================================================================== */
+.projects {
+    width: 100%;
+    padding: 100px 8%;
+}
+
+.projects .title h2 {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.project-card {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px) saturate(160%);
+    -webkit-backdrop-filter: blur(30px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 15px 35px 0 var(--glass-shadow);
+    border-radius: 20px;
+    /* Optimierte, längere Transition-Zeit für das Ausfaden */
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, background-color 0.5s ease;
+}
+
+/* Der Trick für das Button-Alignment: Macht den Teaser selbst zur Flex-Box */
+.card-teaser {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Nutzt die volle Höhe der Karte */
+    flex-grow: 1;
+}
+
+.project-icon {
+    font-size: 36px !important;
+    color: var(--white);
+    opacity: 0.9;
+    margin-bottom: 18px;
+    display: block;
+}
+
+.project-media-preview {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
     margin: 15px 0;
-    padding-top: 20px;
-    text-transform: uppercase;
-    text-align: left;
-    color: var(--green);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-    .card .pra img,
-    .card .pra .video {
-        max-width: 80%;
-        height: auto;
-        padding: 10px;
-    }
-
-    .card .pra .logo {
-        width: 40%;
-        padding: 3px;
-    }
-
-    .card ul {
-        list-style-type: none;
-        padding-left: 20px;
-    }
-
-        .card ul li {
-            padding: 4px 0;
-            color: var(--white);
-            text-align: left;
-        }
-
-.card .button:hover {
-    background-color: transparent;
-    border: 2px solid var(--green);
-    cursor: pointer;
+.project-card p.teaser-text {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 15px;
 }
 
-h5 {
-    color: white;
-    font-size: 27px;
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
     margin-bottom: 25px;
 }
 
-.pra {
-    color: var(--purple);
-    font-size: 16px;
-    line-height: 27px;
-    margin-bottom: 30px;
+.tag {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-main);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.card-details {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease 0.1s;
+}
+
+/* ==========================================================================
+   CSS-GRID FOCUS STATES
+   ========================================================================== */
+.projects-grid.grid-single-focus {
+    grid-template-columns: 1fr;
+}
+
+.project-card.expanded {
+    background: rgba(15, 23, 42, 0.45) !important;
+    backdrop-filter: blur(30px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(160%) !important;
+    
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 45px;
+    z-index: 5;
+    animation: smoothPop 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes smoothPop {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.project-card.expanded .card-teaser {
+    display: none !important;
+}
+
+.project-card.expanded .card-details {
+    display: block;
+    opacity: 1;
+}
+
+.project-card.expanded h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 12px;
+}
+
+/* Inaktive Karten blenden jetzt deutlich softer und verzögert aus */
+.project-card.hidden {
+    opacity: 0;
+    transform: scale(0.93) translateY(40px);
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: none;
+}
+
+/* Knallharte Fixierung für den Button am unteren Kartenrand */
+.project-card .show-more-btn {
+    margin-top: auto; /* Schiebt den Button magisch ganz nach unten, egal wie lang der Text ist */
+    align-self: flex-start;
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+    padding: 9px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card .show-more-btn:hover {
+    background: var(--white);
+    color: var(--bg-main);
+    border-color: var(--white);
+}
+
+.project-media-expanded {
+    flex: 0 0 45%;
+    max-width: 450px;
+    height: auto;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.details-content {
+    flex: 1;
+}
+
+.details-content p {
+    font-size: 15px;
+    line-height: 26px;
+    margin-bottom: 25px;
+    color: var(--text-main);
+}
+
+.features-title {
+    color: var(--white);
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.features-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    color: var(--text-muted);
+}
+
+.features-list li {
+    padding: 3px 0;
+    font-size: 14px;
+}
+
+/* Neuer Button-Look: Standard hohl, ausgefüllt bei Hover */
+.project-card .show-more-btn {
+    align-self: flex-start;
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+    padding: 9px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card .show-more-btn:hover {
+    background: var(--white);
+    color: var(--bg-main);
+    border-color: var(--white);
+}
+
+.project-card .action-btn {
+    display: inline-block;
+    background: var(--white);
+    color: var(--bg-main);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.project-card .action-btn:hover {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--white);
+}
+
+.back-btn {
+    background: transparent;
+    border: none;
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: var(--white);
+}
+/* --- BIS HIERHER ERSETZEN --- */
+
+/* Skills Section */
 .skills {
-    background-color: var(--gray);
-    padding: 80px 0;
+    padding: 100px 8%;
+}
+
+.skills h2 {
+    margin-bottom: 50px;
     text-align: center;
 }
-
-    .skills .main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .skills h2 {
-        font-size: 60px;
-        color: var(--white);
-        text-align: center;
-        margin-bottom: 30px;
-    }
 
 .skill-category {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    width: 100%;
+    max-width: 800px;
     margin-bottom: 30px;
+    padding: 30px;
 }
 
-    .skill-category h3 {
-        color: var(--light-gray);
-        width: 100%;
-        text-align: center;
-    }
+.skill-category h3 {
+    color: var(--white);
+    font-size: 18px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 8px;
+}
 
-    .skill-category .icons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        width: 100%;
-    }
+.skill-category .icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
 
-        .skill-category .icons div {
-            text-align: center;
-            margin: 5px;
-        }
+.skill-category .icons div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
 
-        .skill-category .icons i {
-            color: var(--green);
-            font-size: 2.5em;
-            margin-bottom: 5px;
-        }
+.skill-category .icons i {
+    color: var(--white);
+    opacity: 0.8;
+    font-size: 18px;
+}
 
-        .skill-category .icons label {
-            color: var(--white);
-            font-size: 1em;
-            display: block;
-            margin-top: 10px;
-            padding-bottom: 5px;
-            text-align: center;
-        }
+.skill-category .icons label {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text-main);
+}
 
+/* Contact Section */
 .contact-me {
     width: 100%;
-    height: 250px;
-    background: var(--gray);
+    padding: 100px 8%;
     display: flex;
-    align-items: center;
-    flex-direction: column;
     justify-content: center;
 }
 
-    .contact-me h2 {
-        color: var(--white);
-        font-size: 50px;
-        font-weight: bold;
-        margin-bottom: 30px;
-    }
-
-    .contact-me p {
-        color: var(--purple);
-        margin-bottom: 20px;
-    }
-
-    .contact-me a {
-        color: white;
-        text-decoration: none;
-        padding: 12px 25px;
-        border: 2px solid var(--green);
-        border-radius: 30px;
-        transition: background-color 0.4s;
-    }
-
-        .contact-me a:hover {
-            background-color: var(--green);
-            color: var(--white);
-        }
-
-.footer {
-    background-color: var(--gray);
-    padding: 30px 0;
-    text-align: center;
-}
-
-    .footer p {
-        color: var(--purple);
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-
-.gallery {
-    position: relative;
-    z-index: 0;
-    padding: 100px 10px;
-    text-align: center;
-}
-
-    .gallery h2 {
-        color: var(--white);
-        font-size: 50px;
-        font-weight: bold;
-        margin-bottom: 25px;
-        text-align: center;
-        text-transform: capitalize;
-    }
-
-#particles-gallery {
-    position: absolute;
-    top: 0;
-    left: 0;
+.contact-panel {
+    max-width: 600px;
     width: 100%;
-    height: 100%;
-    background-color: var(--particles-gray);
-    z-index: -1;
+    padding: 50px;
+    text-align: center;
 }
 
-.gallery-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-    margin: 0 auto;
-    max-width: 100%;
-    position: relative;
-    perspective: 1200px; /* Set the perspective for 3D effect */
+.contact-me h2 {
+    margin-bottom: 20px;
 }
 
-.gallery-item {
-    height: 280px;
-    width: 330px;
-    position: absolute;
-    transition: transform .5s;
-    background-size: contain;
-    transform-style: preserve-3d; /* Preserve 3D transformations */
-    backface-visibility: hidden; /* Hide backfaces */
+.contact-me p {
+    font-size: 16px;
+    line-height: 32px;
+    color: var(--text-main);
 }
 
-    .gallery-item img {
+.contact-me i {
+    color: var(--accent);
+    margin-right: 8px;
+}
+
+/* Responsiveness */
+@media (max-width: 850px) {
+    .main-container {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 40px;
+    }
+    .about-text {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transform: rotateY(0deg); /* Initially, set images facing user */
     }
-
-    .gallery-item.active {
-        z-index: 2; /* Set a higher z-index for the active item */
+    nav ul {
+        display: none;
     }
-
-    .gallery-item:nth-child(1) {
-        transform: rotateY(0deg) translateZ(300px);
+    .experience-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
     }
-
-    .gallery-item:nth-child(2) {
-        transform: rotateY(60deg) translateZ(300px);
+    .experience-header {
+        flex-direction: column;
     }
-
-    .gallery-item:nth-child(3) {
-        transform: rotateY(120deg) translateZ(300px);
-    }
-
-    .gallery-item:nth-child(4) {
-        transform: rotateY(180deg) translateZ(300px);
-    }
-
-    .gallery-item:nth-child(5) {
-        transform: rotateY(240deg) translateZ(300px);
-    }
-
-    .gallery-item:nth-child(6) {
-        transform: rotateY(300deg) translateZ(300px);
-    }
-
-    .gallery-item:nth-child(7) {
-        transform: rotateY(360deg) translateZ(300px);
-    }
-
-
-.gallery-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 150px;
-    margin: 0 auto;
-}
-
-    .gallery-controls span {
-        font-size: 30px; /* Größe der Pfeile */
-        margin: 15px 30px 0 30px; /* Gleichmäßiger Abstand zwischen den Pfeilen */
-        color: var(--white); /* Farbe der Pfeile */
-        cursor: pointer;
-        transition: transform 0.3s ease, color 0.3s ease; /* Weiche Übergänge bei Hover */
-    }
-
-        .gallery-controls span:hover {
-            color: var(--light-gray); /* Pfeilfarbe bei Hover */
-            transform: scale(1.2); /* Leicht vergrößern bei Hover */
-        }
-
-.gallery-controls-previous::before {
-    border: solid #000;
-    border-width: 0 5px 5px 0;
-    left: -30px;
-    top: 25%;
-    transform: rotate(135deg) translateX(-50%);
-}
-
-.gallery-controls-next::before {
-    border: solid #000;
-    border-width: 0 5px 5px 0;
-    right: -30px;
-    top: 45%;
-    transform: rotate(-45deg) translateX(-50%);
-}
-
-.gallery-controls-previous:hover::before {
-    left: -40px;
-}
-
-.gallery-controls-next:hover::before {
-    right: -40px;
 }

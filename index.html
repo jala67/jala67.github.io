@@ -1,60 +1,90 @@
 ﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Portfolio Jana Meissner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Jana Meissner</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-
-    <link rel="proconnect" href="https://fonts.gstatic.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 </head>
 <body>
-    <div id="particles-js"></div>
+
+    <!-- Der prozedurale, flüssige 3D-Glass-Blob im Hintergrund -->
+    <div class="canvas-bg-container">
+        <canvas id="liquid-glass-blob"></canvas>
+    </div>
+
+    <!-- Hero Section -->
     <div class="hero">
         <nav>
-            <h2 class="logo">Portfolio</h2>
+            <h2 class="logo">Portfolio.</h2>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#work-experience">Work Experience</a></li>
+                <li><a href="#work-experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="https://drive.google.com/file/d/1LWD9KMAnAStSwzfpHoatBJEGioQLZby3/view?usp=sharing" target="_blank" class="btn">Curriculum Vitae</a>
+            <a href="https://drive.google.com/file/d/1LWD9KMAnAStSwzfpHoatBJEGioQLZby3/view?sharing" target="_blank" class="btn">Curriculum Vitae</a>
         </nav>
         <div class="content">
             <h4>Hello, my name is</h4>
-            <h1>Jana <span>Meissner</span></h1>
-            <h3>I am a software developer.</h3>
-            <div class="newsletter">
+            <h1>Jana Meissner</h1>
+            <h3>I am a software & game developer.</h3>
+            <div class="cta-wrapper">
                 <a href="mailto:janalauer2003@gmail.com?subject=Message%20from%20Your%20Website" class="mail-button" target="_blank">Write a Mail</a>
             </div>
         </div>
     </div>
 
-    <!--About section-->
+    <!-- About Section -->
     <section class="about" id="about">
-        <div class="main">
-            <img src="pics/pb.jpg" alt="personal picture" />
-            <div class="about-text">
+        <div class="main-container">
+            <div class="about-text glass-card">
                 <h2>About Me</h2>
-                <h5>Visual Computing <span>& Game Developer</span></h5>
-                <p>I hold a Bachelor's degree in International Media and Computing from the University of Applied Sciences Berlin. The program covered Web Technology, Visual Computing, and Game Technology, providing a strong foundation in all three areas before specialization. I focused on Visual Computing and Game Technology, where I worked on iOS app development, usability and UI/UX design, game engine technologies, AI behavior in games, and the development of a custom ray tracing engine. Alongside my studies, I gained hands-on experience through various jobs in software and game development, continuously expanding my technical skill set.</p>
+                <h5>Software & Game Developer</h5>
+                <p>
+                    I am a Media Informatics Master's student at HTW Berlin, specializing in Visual Computing and Game Technology. 
+                    With a strong foundation in software architecture and interactive systems, I combine technical engineering 
+                    with creative implementation to develop immersive games and efficient software solutions.
+                </p>
+                
+                <div class="about-facts">
+                    <div class="fact-item">
+                        <strong>Education</strong>
+                        <span>M.Sc. Media Informatics<br>HTW Berlin</span>
+                    </div>
+                    <div class="fact-item">
+                        <strong>Specialization</strong>
+                        <span>Visual Computing &<br>Game Technology</span>
+                    </div>
+                    <div class="fact-item">
+                        <strong>Background</strong>
+                        <span>B.Sc. International Media and Computing (Grade: 1.6)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-profile-wrapper">
+                <div class="profile-glass-frame">
+                    <img src="pics/pb.jpg" alt="Jana Meissner" />
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Work Experience section -->
+    <!-- Work Experience Section -->
     <section class="work-experience" id="work-experience">
-        <h2>Work Experience</h2>
-        <div class="experience-item-wrapper">
+        <div class="section-title-container">
+            <h2>Work Experience</h2>
+        </div>
+        
+        <!-- Ant Neuro -->
+        <div class="experience-item-wrapper glass-card">
             <div class="experience-item">
                 <div class="logo">
                     <a href="https://www.ant-neuro.com" target="_blank">
@@ -62,13 +92,17 @@
                     </a>
                 </div>
                 <div class="experience-details">
-                    <h5>Working Student in Software Development</h5>
-                    <h6>Ant Neuro, Berlin | April 2023 - September 2023</h6>
-                    <p>I have gained valuable experience as a working student in software development at Ant Neuro. In this role, I specialized in implementing functionalities using C# and later transitioned into writing testing scripts in Python. One of my notable achievements was 3D-plotting recorded data from cameras and conducting thorough accuracy analyses.</p>
+                    <div class="experience-header">
+                        <h5>Working Student in Software Development</h5>
+                        <h6>Ant Neuro, Berlin | April 2023 - September 2023</h6>
+                    </div>
+                    <p>Gained hands-on experience implementing core functionalities using C# and developing automated testing scripts in Python. Key responsibilities included 3D-plotting of recorded camera data and executing comprehensive precision and accuracy analyses.</p>
                 </div>
             </div>
         </div>
-        <div class="experience-item-wrapper">
+
+        <!-- DTT Amsterdam -->
+        <div class="experience-item-wrapper glass-card">
             <div class="experience-item">
                 <div class="logo">
                     <a href="https://www.d-tt.nl/en/" target="_blank">
@@ -76,13 +110,17 @@
                     </a>
                 </div>
                 <div class="experience-details">
-                    <h5>Game Development Internship at DTT</h5>
-                    <h6>DTT, Amsterdam | March 2024 - August 2024</h6>
-                    <p>I completed a 5-month internship as a Game Developer in Amsterdam, where I worked on various different games using Unity. This experience significantly enhanced my understanding of game mechanics, design, and implementation in a professional environment.</p>
+                    <div class="experience-header">
+                        <h5>Game Development Internship</h5>
+                        <h6>DTT, Amsterdam | March 2024 - August 2024</h6>
+                    </div>
+                    <p>Completed a 5-month international internship as a Game Developer. Contributed to various production-ready game titles within Unity, deeply enhancing technical skills in gameplay programming, mechanics design, and agile implementation.</p>
                 </div>
             </div>
         </div>
-        <div class="experience-item-wrapper">
+
+        <!-- Knorr-Bremse -->
+        <div class="experience-item-wrapper glass-card">
             <div class="experience-item">
                 <div class="logo">
                     <a href="https://www.knorr-bremse.com/de/" target="_blank">
@@ -90,274 +128,192 @@
                     </a>
                 </div>
                 <div class="experience-details">
-                    <h5>Working Student in IT</h5>
-                    <h6>Knorr-Bremse, Berlin | Since September 2023 - Present</h6>
-                    <p>As a working student in the IT department at Knorr-Bremse, I support the Windows 11 migration project by replacing outdated hardware and ensuring smooth transitions. During my time here, I have gained hands-on experience with Active Roles, PowerShell scripting, and the Device Management Console, enhancing my technical expertise. This role allows me to further develop my problem-solving skills while contributing to an essential company-wide upgrade.</p>
+                    <div class="experience-header">
+                        <h5>Working Student in IT</h5>
+                        <h6>Knorr-Bremse, Berlin | Since September 2023 - Present</h6>
+                    </div>
+                    <p>Supporting the enterprise-wide Windows 11 migration project by managing hardware replacement pipelines. Gained technical proficiency with Active Roles, automated PowerShell scripting, and the Microsoft Device Management Console.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!--Projects section-->
-    <div class="projects" id="projects">
+    <!-- Projects Section -->
+<section class="projects" id="projects">
         <div class="title">
             <h2>My Projects</h2>
         </div>
-        <div class="box">
-            <div class="card">
-                <i class="fa-solid fa-explosion"></i>
-                <h5>Ray Tracing Engine</h5>
-                <div class="pra">
-                    <img src="pics/raytracing.png" alt="Ray Tracing Image">
-                    <p>Experience realistic image generation with the Java-based raytracer. This implementation accurately simulates the interaction of light rays with 3D objects in a scene, resulting in captivating visualizations.</p>
-                    <h6>Features</h6>
-                    <ul>
-                        <li>Quadrics</li>
-                        <li>Torus with Ray Marching</li>
-                        <li>Shadows</li>
-                        <li>Reflections & Refractions</li>
-                        <li>Diffuse and specular lighting</li>
-                        <li>Constructive Solid Geometry: union, intersection, and difference</li>
-                        <li>Skydome Sphere</li>
-                    </ul>
-                    <p style="text-align: center;">
-                        <a class="button" href="https://github.com/jala67/RayTracing" target="_blank">Checkout Code</a>
-                    </p>
+        
+        <div class="projects-grid" id="projects-grid">
+            
+            <div class="project-card glass-card">
+                <div class="card-teaser">
+                    <i class="fa-solid fa-gamepad project-icon"></i>
+                    <h5>Coppers and Thieves</h5>
+                    <img src="pics/CT1.png" alt="Coppers and Thieves Preview" class="project-media-preview" />
+                    <p class="teaser-text">A multiplayer game project focusing on robust network synchronization and architecture.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Netcode</span>
+                        <span class="tag">Git</span>
+                    </div>
+                    <button class="button show-more-btn">Show More</button>
+                </div>
+                
+                <div class="card-details">
+                    <button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Projects</button>
+                    <h2>Coppers and Thieves</h2>
+                    <div class="expanded-layout">
+                        <img src="pics/CT1.png" alt="Coppers and Thieves" class="project-media-expanded" />
+                        <div class="details-content">
+                            <p>Implemented multiplayer features using Netcode for GameObjects, structural scriptable objects, and advanced network prefab handling under Git version control. Focuses heavily on clean architecture and smooth state replication.</p>
+                            <a class="button action-btn" href="https://github.com/jala67" target="_blank">View on GitHub</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="card">
-                <i class="fa-solid fa-wand-sparkles"></i>
-                <h5>VR Game: SpellWeaver</h5>
-                <div class="pra">
-                    <p>Spellweaver: Words of Power is a group project that delves into the realm of Speech-to-Text technology in Virtual Reality. In this captivating Unity game, you step into the shoes of a magician, wielding the power of words. Your task is to accurately recite spells from a spellbook. The correctness of your incantation directly influences the potency of your unleashed spell, determined by the Word Error Rate.</p>
-                    <img class="logo" src="pics/swlogo.png" alt="SpellWeaver Logo">
-                    <video class="video" controls>
+            <div class="project-card glass-card">
+                <div class="card-teaser">
+                    <i class="fa-solid fa-robot project-icon"></i>
+                    <h5>KYC Process Automation</h5>
+                    <p class="teaser-text">An enterprise-focused Robotic Process Automation (RPA) project designed to automate compliance checks.</p>
+                    <div class="tech-tags">
+                        <span class="tag">UiPath</span>
+                        <span class="tag">RPA</span>
+                        <span class="tag">Automation</span>
+                    </div>
+                    <button class="button show-more-btn">Show More</button>
+                </div>
+                
+                <div class="card-details">
+                    <button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Projects</button>
+                    <h2>KYC Process Automation</h2>
+                    <div class="expanded-layout">
+                        <img src="" alt="KYC Automation" class="project-media-expanded" />
+                        <div class="details-content">
+                            <p>An enterprise-focused Robotic Process Automation (RPA) project designed to automate compliance checks. Developed a stable, end-to-end Know Your Customer (KYC) workflow leveraging the UiPath platform to streamline manual data verification pipelines.</p>
+                            <a class="button action-btn" href="#" style="opacity: 0.3; pointer-events: none;">Internal Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card glass-card">
+                <div class="card-teaser">
+                    <i class="fa-solid fa-explosion project-icon"></i>
+                    <h5>Ray Tracing Engine</h5>
+                    <img src="pics/raytracing.png" alt="Ray Tracing Preview" class="project-media-preview" />
+                    <p class="teaser-text">A custom Java-based raytracer simulating light interaction with 3D scenes.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Computer Graphics</span>
+                        <span class="tag">Ray Marching</span>
+                    </div>
+                    <button class="button show-more-btn">Show More</button>
+                </div>
+                
+                <div class="card-details">
+                    <button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Projects</button>
+                    <h2>Ray Tracing Engine</h2>
+                    <div class="expanded-layout">
+                        <img src="pics/raytracing.png" alt="Ray Tracing Engine" class="project-media-expanded" />
+                        <div class="details-content">
+                            <p>Experience realistic image generation with the Java-based raytracer. This implementation accurately simulates the interaction of light rays with 3D objects in a scene, resulting in captivating visualizations.</p>
+                            <h6 class="features-title">Features</h6>
+                            <ul class="features-list">
+                                <li>Quadrics</li>
+                                <li>Torus with Ray Marching</li>
+                                <li>Shadows</li>
+                                <li>Reflections & Refractions</li>
+                                <li>Diffuse and specular lighting</li>
+                                <li>Constructive Solid Geometry: union, intersection, and difference</li>
+                                <li>Skydome Sphere</li>
+                            </ul>
+                            <a class="button action-btn" href="https://github.com/jala67/RayTracing" target="_blank">Checkout Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card glass-card">
+                <div class="card-teaser">
+                    <i class="fa-solid fa-wand-sparkles project-icon"></i>
+                    <h5>VR Game: SpellWeaver</h5>
+                    <video class="project-media-preview" autoplay loop muted playsinline>
                         <source src="pics/showtimeClip.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
                     </video>
-                    <p>Our project underwent rigorous testing of various STT APIs, ensuring not only seamless integration but also future adaptability through the implementation of the Adapter pattern.</p>
-                    <p style="text-align: center;">
-                        <a class="button" href="https://showtime.f4.htw-berlin.de/ss23/bachelor/b5-spellweaver/" target="_blank">Checkout Webpage</a>
-                    </p>
+                    <p class="teaser-text">A Virtual Reality group project exploring Speech-to-Text technology in Unity.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">VR</span>
+                        <span class="tag">STT API</span>
+                    </div>
+                    <button class="button show-more-btn">Show More</button>
+                </div>
+                
+                <div class="card-details">
+                    <button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Projects</button>
+                    <h2>VR Game: SpellWeaver</h2>
+                    <div class="expanded-layout">
+                        <video class="project-media-expanded" controls autoplay loop muted>
+                            <source src="pics/showtimeClip.mp4" type="video/mp4">
+                        </video>
+                        <div class="details-content">
+                            <p>Spellweaver: Words of Power is a group project that delves into the realm of Speech-to-Text technology in Virtual Reality. In this captivating Unity game, you step into the shoes of a magician, wielding the power of words. Your task is to accurately recite spells from a spellbook. The correctness of your incantation directly influences the potency of your unleashed spell, determined by the Word Error Rate.</p>
+                            <p>Our project underwent rigorous testing of various STT APIs, ensuring not only seamless integration but also future adaptability through the implementation of the Adapter pattern.</p>
+                            <a class="button action-btn" href="https://showtime.f4.htw-berlin.de/ss23/bachelor/b5-spellweaver/" target="_blank">Checkout Webpage</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Skills section -->
+        </div>
+    </section>
+
+    <!-- Skills Section -->
     <section class="skills" id="skills">
-        <div class="main">
+        <div class="main-container flex-column">
             <h2>Skills</h2>
-            <div class="skill-category">
+            
+            <div class="skill-category glass-card">
                 <h3>Programming Languages</h3>
                 <div class="icons">
-                    <div>
-                        <i class="fab fa-java"></i>
-                        <label>Java</label>
-                    </div>
-                    <div>
-                        <i class="fab fa-python"></i>
-                        <label>Python</label>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-code"></i>
-                        <label>C#</label>
-                    </div>
-                    <div>
-                        <i class="fab fa-html5"></i>
-                        <label>HTML</label>
-                    </div>
-                    <div>
-                        <i class="fab fa-css3"></i>
-                        <label>CSS</label>
-                    </div>
-                    <div>
-                        <i class="fab fa-js"></i>
-                        <label>JavaScript</label>
-                    </div>
-                    <div>
-                        <i class="fab fa-swift"></i>
-                        <label>Swift</label>
-                    </div>
+                    <div><i class="fab fa-code"></i><label>C#</label></div>
+                    <div><i class="fab fa-java"></i><label>Java</label></div>
+                    <div><i class="fab fa-python"></i><label>Python</label></div>
+                    <div><i class="fab fa-html5"></i><label>HTML5</label></div>
+                    <div><i class="fab fa-css3-alt"></i><label>CSS3</label></div>
+                    <div><i class="fab fa-js"></i><label>JavaScript</label></div>
+                    <div><i class="fab fa-swift"></i><label>Swift</label></div>
                 </div>
             </div>
-            <div class="skill-category">
-                <h3>Data Science Libraries</h3>
+
+            <div class="skill-category glass-card">
+                <h3>Development & Design Tools</h3>
                 <div class="icons">
-                    <div>
-                        <i class="fab fa-python"></i>
-                        <label>Matplotlib</label>
-                    </div>
-                    <div>
-                        <i class="fab fa-python"></i>
-                        <label>Seaborn</label>
-                    </div>
-                    <div>
-                        <i class="fab fa-npm"></i>
-                        <label>Numpy</label>
-                    </div>
-                    <div>
-                        <i class="fab fa-python"></i>
-                        <label>Pandas</label>
-                    </div>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Development Tools</h3>
-                <div class="icons">
-                    <div>
-                        <i class="fab fa-unity"></i>
-                        <label>Unity</label>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-m"></i>
-                        <label>Maya</label>
-                    </div>
-                    <div>
-                        <i class="fa-brands fa-medium"></i>
-                        <label>Blender</label>
-                    </div>
-                    <div>
-                        <i class="fas fa-database"></i>
-                        <label>MySQL</label>
-                    </div>
-                    <div>
-                        <i class="fas fa-database"></i>
-                        <label>PostgreSQL</label>
-                    </div>
+                    <div><i class="fab fa-unity"></i><label>Unity</label></div>
+                    <div><i class="fa-solid fa-robot"></i><label>UiPath</label></div>
+                    <div><i class="fa-solid fa-cube"></i><label>Blender</label></div>
+                    <div><i class="fa-solid fa-bezier-curve"></i><label>Maya</label></div>
+                    <div><i class="fas fa-database"></i><label>PostgreSQL</label></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="gallery" id="gallery">
-        <div id="particles-gallery"></div>
-        <h2>Gallery</h2>
-        <div class="gallery-container">
-            <img class="gallery-item gallery-item-1 active" src="pics/rt3.png" data-index="1">
-            <img class="gallery-item gallery-item-2" src="pics/rt4.png" data-index="2">
-            <img class="gallery-item gallery-item-3" src="pics/swspell.png" data-index="3">
-            <img class="gallery-item gallery-item-4" src="pics/swenemy.png" data-index="4">
-            <img class="gallery-item gallery-item-5" src="pics/swmenu.png" data-index="5">
-            <img class="gallery-item gallery-item-6" src="pics/renderedImage.png" data-index="6">
-            <img class="gallery-item gallery-item-7" src="pics/blendForest.png" data-index="7">
-            <img class="gallery-item gallery-item-8" src="pics/swhouse.png" data-index="8">
+    <!-- Contact Section -->
+    <footer class="contact-me" id="contact">
+        <div class="glass-card contact-panel">
+            <h2>Contact Me</h2>
+            <p>
+                <i class="fas fa-envelope"></i> Janalauer2003@gmail.com<br>
+                <i class="fas fa-phone"></i> +49 176 43265632
+            </p>
         </div>
-        <div class="gallery-controls">
-            <span class="gallery-controls-previous">&#x25C4;</span>
-            <span class="gallery-controls-next">&#x25BA;</span>
-        </div>
-    </div>
-
-    <!--Contact section-->
-    <div class="contact-me" id="contact">
-        <h2>Contact Me</h2>
-        <p>
-            <i class="fas fa-envelope">&nbsp;</i> Janalauer2003@gmail.com<br>
-            <i class="fas fa-phone">&nbsp;</i> +49 176 43265632
-        </p>
-    </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const navItems = document.querySelectorAll("nav ul li a");
-
-            navItems.forEach(item => {
-                item.addEventListener("click", function (event) {
-                    event.preventDefault();
-
-                    const target = document.querySelector(this.getAttribute("href"));
-                    window.scrollTo({
-                        top: target.offsetTop,
-                        behavior: "smooth"
-                    });
-                });
-            });
-        });
-
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 50 },
-                color: { value: '#ffffff' },
-                shape: { type: 'circle' },
-                opacity: { value: 0.5, random: false },
-                size: { value: 3, random: true },
-                move: { enable: true, speed: 1, direction: 'none', random: true, straight: false, out_mode: 'out' }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: { enable: false, mode: 'repulse' }, // Disable hover effect
-                    onclick: { enable: false, mode: 'push' }     // Disable click effect
-                },
-            },
-            retina_detect: true
-        });
-
-
-
-        document.addEventListener("DOMContentLoaded", function () {
-            particlesJS('particles-gallery', {
-                particles: {
-                    number: { value: 50 },
-                    color: { value: '#ffffff' },
-                    shape: { type: 'circle' },
-                    opacity: { value: 0.5, random: false },
-                    size: { value: 3, random: true },
-                    move: { enable: true, speed: 1, direction: 'none', random: true, straight: false, out_mode: 'out' }
-                },
-                interactivity: {
-                    detect_on: 'canvas',
-                    events: {
-                        onhover: { enable: false, mode: 'repulse' }, // Disable hover effect
-                        onclick: { enable: false, mode: 'push' }     // Disable click effect
-                    },
-                },
-                retina_detect: true
-            });
-        });
-
-        //carousel
-        document.addEventListener('DOMContentLoaded', function () {
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            const galleryContainer = document.querySelector('.gallery-container');
-            let currentIndex = 0;
-
-            function updateGallery() {
-                const totalItems = galleryItems.length;
-                const angle = 360 / totalItems;
-                galleryItems.forEach((item, index) => {
-                    const rotateY = angle * (index - currentIndex);
-                    item.style.transform = `rotateY(${rotateY}deg) translateZ(300px)`;
-                    item.style.transition = 'transform 0.5s';
-                    if (index === currentIndex) {
-                        item.style.zIndex = 2; // Bring the active item to the front
-                    } else {
-                        item.style.zIndex = 1;
-                    }
-                });
-            }
-
-            function nextImage() {
-                currentIndex = (currentIndex + 1) % galleryItems.length;
-                updateGallery();
-            }
-
-            function previousImage() {
-                currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-                updateGallery();
-            }
-
-            const prevButton = document.querySelector('.gallery-controls-previous');
-            const nextButton = document.querySelector('.gallery-controls-next');
-
-            prevButton.addEventListener('click', previousImage);
-            nextButton.addEventListener('click', nextImage);
-
-            // Initialize gallery
-            updateGallery();
-        });
-
-    </script>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
