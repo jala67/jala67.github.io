@@ -724,6 +724,11 @@ nav ul li a:hover {
         align-items: center;
         gap: 40px;
     }
+
+    .skills .main-container {
+        flex-direction: column;
+    }
+
     .about-text {
         width: 100%;
     }
