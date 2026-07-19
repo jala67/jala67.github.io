@@ -9,349 +9,271 @@
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" />
+    <!-- Ein edlerer, minimalistischerer Font-Mix -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@200;400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 </head>
 <body>
 
-    <!-- Der prozedurale, flüssige 3D-Glass-Blob im Hintergrund -->
+    <!-- Das interaktive Vektor-Netzwerk im Hintergrund -->
     <div class="canvas-bg-container">
-        <canvas id="liquid-glass-blob"></canvas>
+        <canvas id="interactive-vector-net"></canvas>
     </div>
+
+    <!-- Ultradünne, minimalistische Sticky-Nav -->
+    <header class="editorial-header">
+        <nav class="nav-container">
+            <a href="#hero" class="logo">J.M<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about"><span>01.</span> About</a></li>
+                <li><a href="#work-experience"><span>02.</span> Experience</a></li>
+                <li><a href="#projects"><span>03.</span> Projects</a></li>
+                <li><a href="#skills"><span>04.</span> Skills</a></li>
+                <li><a href="#contact"><span>05.</span> Contact</a></li>
+            </ul>
+            <a href="https://drive.google.com/file/d/1LWD9KMAnAStSwzfpHoatBJEGioQLZby3/view?sharing" target="_blank" class="cv-link-premium">Curriculum Vitae</a>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
-    <div class="hero">
-        <nav>
-            <h2 class="logo">Portfolio.</h2>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#work-experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="https://drive.google.com/file/d/1LWD9KMAnAStSwzfpHoatBJEGioQLZby3/view?sharing" target="_blank" class="btn">Curriculum Vitae</a>
-        </nav>
-        <div class="content">
-            <h4>Hello, my name is</h4>
-            <h1>Jana Meissner</h1>
-            <h3>I am a software & game developer.</h3>
+    <section class="hero" id="hero">
+        <div class="hero-center">
+            <span class="hero-tag">Portfolio '26</span>
+            <h1 class="hero-main-title">Jana Meissner</h1>
+            <div class="hero-line"></div>
+            <h3>Creative Engineering <span>&</span> Game Technologies</h3>
             <div class="cta-wrapper">
-                <a href="mailto:janalauer2003@gmail.com?subject=Message%20from%20Your%20Website" class="mail-button" target="_blank">Write a Mail</a>
+                <a href="mailto:janalauer2003@gmail.com?subject=Message%20from%20Your%20Website" class="editorial-cta">Inquire Project</a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- About Section -->
+    <!-- 01. About Section -->
     <section class="about" id="about">
-        <div class="main-container">
-            <div class="about-text glass-card">
-                <h2>About Me</h2>
-                <h5>Software & Game Developer</h5>
-                <p>
-                    I am a Media Informatics Master's student at HTW Berlin, specializing in Visual Computing and Game Technology. 
-                    With a strong foundation in software architecture and interactive systems, I combine technical engineering 
-                    with creative implementation to develop immersive games and efficient software solutions.
-                </p>
-                
-                <div class="about-facts">
-                    <div class="fact-item">
-                        <strong>Education</strong>
-                        <span>M.Sc. Media Informatics<br>HTW Berlin</span>
-                    </div>
-                    <div class="fact-item">
-                        <strong>Specialization</strong>
-                        <span>Visual Computing &<br>Game Technology</span>
-                    </div>
-                    <div class="fact-item">
-                        <strong>Background</strong>
-                        <span>B.Sc. International Media and Computing (Grade: 1.6)</span>
-                    </div>
+        <div class="editorial-container">
+            <div class="section-indicator">01 // Identity</div>
+            <div class="about-grid-premium">
+                <div class="about-meta-text">
+                    <h2>Master's Student in Media Informatics.</h2>
+                    <p>
+                        Based in Berlin, specializing in Visual Computing and Game Technology. I bridge the gap between rigorous software architecture and highly satisfying creative frontend implementation.
+                    </p>
                 </div>
-            </div>
-            <div class="about-profile-wrapper">
-                <div class="profile-glass-frame">
-                    <img src="pics/pb.jpg" alt="Jana Meissner" />
+                <div class="about-stats-list">
+                    <div class="stat-row">
+                        <span class="stat-label">Focus</span>
+                        <span class="stat-val">Interactive Systems & 3D Web</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Academic Background</span>
+                        <span class="stat-val">B.Sc. International Media Informatics (Grade: 1.6)</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Current Institute</span>
+                        <span class="stat-val">HTW Berlin</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Work Experience Section -->
+    <!-- 02. Work Experience Section -->
     <section class="work-experience" id="work-experience">
-        <div class="section-title-container">
-            <h2>Work Experience</h2>
-        </div>
-        
-        <!-- Ant Neuro -->
-        <div class="experience-item-wrapper glass-card">
-            <div class="experience-item">
-                <div class="logo">
-                    <a href="https://www.ant-neuro.com" target="_blank">
-                        <img src="pics/antneuro.png" alt="Ant Neuro Logo" />
-                    </a>
-                </div>
-                <div class="experience-details">
-                    <div class="experience-header">
-                        <h5>Working Student in Software Development</h5>
-                        <h6>Ant Neuro, Berlin | April 2023 - September 2023</h6>
-                    </div>
-                    <p>Gained hands-on experience implementing core functionalities using C# and developing automated testing scripts in Python. Key responsibilities included 3D-plotting of recorded camera data and executing comprehensive precision and accuracy analyses.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- DTT Amsterdam -->
-        <div class="experience-item-wrapper glass-card">
-            <div class="experience-item">
-                <div class="logo">
-                    <a href="https://www.d-tt.nl/en/" target="_blank">
-                        <img src="pics/dtt.png" alt="DTT Logo" />
-                    </a>
-                </div>
-                <div class="experience-details">
-                    <div class="experience-header">
-                        <h5>Game Development Internship</h5>
-                        <h6>DTT, Amsterdam | March 2024 - August 2024</h6>
-                    </div>
-                    <p>Completed a 5-month international internship as a Game Developer. Contributed to various production-ready game titles within Unity, deeply enhancing technical skills in gameplay programming, mechanics design, and agile implementation.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Knorr-Bremse -->
-        <div class="experience-item-wrapper glass-card">
-            <div class="experience-item">
-                <div class="logo">
-                    <a href="https://www.knorr-bremse.com/de/" target="_blank">
-                        <img src="pics/knorr.png" alt="Knorr Bremse Logo" />
-                    </a>
-                </div>
-                <div class="experience-details">
-                    <div class="experience-header">
-                        <h5>Working Student in IT</h5>
-                        <h6>Knorr-Bremse, Berlin | Since September 2023 - Present</h6>
-                    </div>
-                    <p>Supporting the enterprise-wide Windows 11 migration project by managing hardware replacement pipelines. Gained technical proficiency with Active Roles, automated PowerShell scripting, and the Microsoft Device Management Console.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-<section class="projects" id="projects">
-        <div class="title">
-            <h2>My Projects</h2>
-        </div>
-        
-        <div class="projects-grid" id="projects-grid">
+        <div class="editorial-container">
+            <div class="section-indicator">02 // Trajectory</div>
+            <h2 class="editorial-title">Professional Stations</h2>
             
-            <div class="project-card glass-card">
-                <div class="card-teaser">
-                    <i class="fa-solid fa-gamepad project-icon"></i>
-                    <h5>Coppers and Thieves</h5>
-                    <img src="pics/CT1.png" alt="Coppers and Thieves Preview" class="project-media-preview" />
-                    <p class="teaser-text">A multiplayer game project focusing on robust network synchronization and architecture.</p>
-                    <div class="tech-tags">
-                        <span class="tag">Unity</span>
-                        <span class="tag">C#</span>
-                        <span class="tag">Netcode</span>
-                        <span class="tag">Git</span>
-                    </div>
-                    <button class="button show-more-btn">Show More</button>
-                </div>
+            <div class="editorial-experience-list">
                 
-                <div class="card-details">
-                    <button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Projects</button>
-                    <h2>Coppers and Thieves</h2>
-                    <div class="expanded-layout">
-                        <img src="pics/CT1.png" alt="Coppers and Thieves" class="project-media-expanded" />
-                        <div class="details-content">
-                            <p>Implemented multiplayer features using Netcode for GameObjects, structural scriptable objects, and advanced network prefab handling under Git version control. Focuses heavily on clean architecture and smooth state replication.</p>
-                            <a class="button action-btn" href="https://github.com/jala67" target="_blank">View on GitHub</a>
-                        </div>
+                <!-- Station 1 -->
+                <div class="exp-block">
+                    <div class="exp-year">2024</div>
+                    <div class="exp-company">
+                        <h4>DTT Amsterdam</h4>
+                        <span>Game Development Intern</span>
+                    </div>
+                    <div class="exp-desc">
+                        <p>Contributed to production-ready title releases within the Unity ecosystem, implementing robust core gameplay loops and refining structural software mechanics.</p>
                     </div>
                 </div>
+
+                <!-- Station 2 -->
+                <div class="exp-block">
+                    <div class="exp-year">2023</div>
+                    <div class="exp-company">
+                        <h4>Ant Neuro</h4>
+                        <span>Working Student Developer</span>
+                    </div>
+                    <div class="exp-desc">
+                        <p>Developed interactive C# workflows and telemetry tooling. Engineered automated analysis pipelines for 3D camera mapping data utilizing Python scripts.</p>
+                    </div>
+                </div>
+
+                <!-- Station 3 -->
+                <div class="exp-block">
+                    <div class="exp-year">Present</div>
+                    <div class="exp-company">
+                        <h4>Knorr-Bremse</h4>
+                        <span>Working Student IT Infrastructure</span>
+                    </div>
+                    <div class="exp-desc">
+                        <p>Automating infrastructure migrations via object-oriented PowerShell environments and managing active pipeline deployment systems.</p>
+                    </div>
+                </div>
+
             </div>
-
-            <div class="project-card glass-card">
-                <div class="card-teaser">
-                    <i class="fa-solid fa-graduation-cap project-icon"></i>
-                    <h5>Procedural Animations</h5>
-                    <img src="pics/proc-anim-hand.png" alt="Procedural Animations Preview" class="project-media-preview" />
-                    <p class="teaser-text">My Bachelor's thesis focused on dynamic, real-time character adaptations to unpredictable obstacles in Unity.</p>
-                    <div class="tech-tags">
-                        <span class="tag">Unity</span>
-                        <span class="tag">C#</span>
-                        <span class="tag">Animation Rigging</span>
-                        <span class="tag">Inverse Kinematics</span>
-                    </div>
-                    <button class="button show-more-btn">Show More</button>
-                </div>
-                
-                <div class="card-details">
-                    <button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Projects</button>
-                    <h2>Procedural Character Animations for Dynamic Obstacle Interactions</h2>
-                    
-                    <div class="project-gallery">
-                        <img src="pics/proc-anim-hand.png" alt="Hand Placement System" />
-                        <img src="pics/proc-anim-crouch.png" alt="Ducking System" />
-                        <img src="pics/proc-anim-combined.png" alt="Combined System" />
-                    </div>
-
-                    <div class="details-content-full">
-                        <p class="thesis-meta">Bachelor Thesis | International Media Informatics (HTW Berlin)</p>
-                        <p class="project-description">
-                            Developed a comprehensive runtime rigging system that allows humanoid characters to dynamically interact with complex, shifting environments in real-time. By utilizing custom algorithmic solutions rather than relying on standard static keyframe sequences, this system automatically adapts character posture, collisions, and bone chains programmatically to elevate overall player immersion.
-                        </p>
-                        
-                        <h6 class="features-title">Core Implementation Details</h6>
-                        <ul class="features-list">
-                            <li><strong>Advanced Foot IK:</strong> Implemented precise dynamic foot placement and tilt rotation utilizing predictive multi-surface checks (Raycasting & Spherecasting).</li>
-                            <li><strong>Dynamic Crouching System:</strong> Built a customized runtime posture morph that calculates accurate overhead clearance using real-time vertical casts, smoothly driving a custom State Machine and updating active physical capsule colliders.</li>
-                            <li><strong>Contextual Hand Placement:</strong> Engineered an intuitive boundary-triggered reach mechanism using Two-Bone IK and Multi-Rotational Constraints to realistically brush past environment obstacles.</li>
-                            <li><strong>Performance Optimization:</strong> Evaluated multiple industry framework approaches (CCD vs. Analytical geometry), confirming a minimal overhead footprint averaging less than 0.5ms per frame execution.</li>
-                        </ul>
-                        
-                        <a class="button action-btn" href="https://github.com/jala67/procedural-animations" target="_blank">Checkout Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card glass-card">
-                <div class="card-teaser">
-                    <i class="fa-solid fa-explosion project-icon"></i>
-                    <h5>Ray Tracing Engine</h5>
-                    <img src="pics/raytracing.png" alt="Ray Tracing Preview" class="project-media-preview" />
-                    <p class="teaser-text">A custom Java-based raytracer simulating light interaction with 3D scenes.</p>
-                    <div class="tech-tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Computer Graphics</span>
-                        <span class="tag">Ray Marching</span>
-                    </div>
-                    <button class="button show-more-btn">Show More</button>
-                </div>
-                
-                <div class="card-details">
-                    <button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Projects</button>
-                    <h2>Ray Tracing Engine</h2>
-                    <div class="expanded-layout">
-                        <img src="pics/raytracing.png" alt="Ray Tracing Engine" class="project-media-expanded" />
-                        <div class="details-content">
-                            <p>Experience realistic image generation with the Java-based raytracer. This implementation accurately simulates the interaction of light rays with 3D objects in a scene, resulting in captivating visualizations.</p>
-                            <h6 class="features-title">Features</h6>
-                            <ul class="features-list">
-                                <li>Quadrics</li>
-                                <li>Torus with Ray Marching</li>
-                                <li>Shadows</li>
-                                <li>Reflections & Refractions</li>
-                                <li>Diffuse and specular lighting</li>
-                                <li>Constructive Solid Geometry: union, intersection, and difference</li>
-                                <li>Skydome Sphere</li>
-                            </ul>
-                            <a class="button action-btn" href="https://github.com/jala67/RayTracing" target="_blank">Checkout Code</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card glass-card">
-                <div class="card-teaser">
-                    <i class="fa-solid fa-wand-sparkles project-icon"></i>
-                    <h5>VR Game: SpellWeaver</h5>
-                    <video class="project-media-preview" autoplay loop muted playsinline>
-                        <source src="pics/showtimeClip.mp4" type="video/mp4">
-                    </video>
-                    <p class="teaser-text">A Virtual Reality group project exploring Speech-to-Text technology in Unity.</p>
-                    <div class="tech-tags">
-                        <span class="tag">Unity</span>
-                        <span class="tag">C#</span>
-                        <span class="tag">VR</span>
-                        <span class="tag">STT API</span>
-                    </div>
-                    <button class="button show-more-btn">Show More</button>
-                </div>
-                
-                <div class="card-details">
-                    <button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Projects</button>
-                    <h2>VR Game: SpellWeaver</h2>
-                    <div class="expanded-layout">
-                        <video class="project-media-expanded" controls autoplay loop muted>
-                            <source src="pics/showtimeClip.mp4" type="video/mp4">
-                        </video>
-                        <div class="details-content">
-                            <p>Spellweaver: Words of Power is a group project that delves into the realm of Speech-to-Text technology in Virtual Reality. In this captivating Unity game, you step into the shoes of a magician, wielding the power of words. Your task is to accurately recite spells from a spellbook. The correctness of your incantation directly influences the potency of your unleashed spell, determined by the Word Error Rate.</p>
-                            <p>Our project underwent rigorous testing of various STT APIs, ensuring not only seamless integration but also future adaptability through the implementation of the Adapter pattern.</p>
-                            <a class="button action-btn" href="https://showtime.f4.htw-berlin.de/ss23/bachelor/b5-spellweaver/" target="_blank">Checkout Webpage</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- 03. Projects Section (Der Akkordeon Slider) -->
+    <section class="projects" id="projects">
+        <div class="editorial-container-fluid">
+            <div class="section-indicator pad-left">03 // Showcases</div>
+            
+            <div class="accordion-slider-container">
+                
+                <!-- Project 1 -->
+                <div class="accordion-panel active">
+                    <div class="panel-header-vertical">
+                        <span class="panel-num">01</span>
+                        <h3>Coppers & Thieves</h3>
+                    </div>
+                    <div class="panel-body-content">
+                        <div class="panel-inner-grid">
+                            <div class="panel-text">
+                                <h2>Coppers & Thieves</h2>
+                                <p>Multiplayer network game built with Unity Netcode. Engineered around structural scriptable objects and clean git-based state replication models.</p>
+                                <div class="project-tags-premium">
+                                    <span>Unity</span><span>C#</span><span>Netcode</span>
+                                </div>
+                                <a href="https://github.com/jala67" target="_blank" class="project-link-clean">Source Code <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                            <div class="panel-image">
+                                <img src="pics/CT1.png" alt="Coppers & Thieves" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Bachelor Arbeit -->
+                <div class="accordion-panel">
+                    <div class="panel-header-vertical">
+                        <span class="panel-num">02</span>
+                        <h3>Procedural Rigging</h3>
+                    </div>
+                    <div class="panel-body-content">
+                        <div class="panel-inner-grid">
+                            <div class="panel-text">
+                                <h2>Procedural Character Animations[cite: 1]</h2>
+                                <p>My Bachelor's thesis exploring dynamic obstacle mechanics[cite: 1]. Developed custom mathematical foot-IK and real-time vertical clearance raycasting loops[cite: 1].</p>
+                                <div class="project-tags-premium">
+                                    <span>Animation Rigging</span><span>IK Solver</span><span>C#</span>[cite: 1]
+                                </div>
+                                <a href="https://github.com/jala67/procedural-animations" target="_blank" class="project-link-clean">Thesis Repository <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                            <div class="panel-image-triple">
+                                <img src="pics/proc-anim-hand.png" alt="Hand placement" />[cite: 4]
+                                <img src="pics/proc-anim-crouch.png" alt="Crouch mechanics" />[cite: 4]
+                                <img src="pics/proc-anim-combined.png" alt="IK System" />[cite: 4]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="accordion-panel">
+                    <div class="panel-header-vertical">
+                        <span class="panel-num">03</span>
+                        <h3>Ray Tracing</h3>
+                    </div>
+                    <div class="panel-body-content">
+                        <div class="panel-inner-grid">
+                            <div class="panel-text">
+                                <h2>Java Ray Tracing Engine</h2>
+                                <p>Custom standalone graphics renderer executing primitive algebraic quadrics intersection calculations and ray-marching routines for complex solid geometries.</p>
+                                <div class="project-tags-premium">
+                                    <span>Java</span><span>Graphics Mathematics</span><span>Ray Marching</span>
+                                </div>
+                                <a href="https://github.com/jala67/RayTracing" target="_blank" class="project-link-clean">Inspect Mathematical Engine <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                            <div class="panel-image">
+                                <img src="pics/raytracing.png" alt="Raytracer" />[cite: 4]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="accordion-panel">
+                    <div class="panel-header-vertical">
+                        <span class="panel-num">04</span>
+                        <h3>SpellWeaver VR</h3>
+                    </div>
+                    <div class="panel-body-content">
+                        <div class="panel-inner-grid">
+                            <div class="panel-text">
+                                <h2>VR Game: SpellWeaver</h2>
+                                <p>Virtual Reality spellcasting experience incorporating word error rate adapters and advanced Speech-to-Text runtime API bindings.</p>
+                                <div class="project-tags-premium">
+                                    <span>Unity</span><span>VR</span><span>Speech-To-Text</span>
+                                </div>
+                                <a href="https://showtime.f4.htw-berlin.de/ss23/bachelor/b5-spellweaver/" target="_blank" class="project-link-clean">Showtime Page <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                            <div class="panel-image">
+                                <video autoplay loop muted playsinline><source src="pics/showtimeClip.mp4" type="video/mp4"></video>[cite: 4]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 04. Skills Section -->
     <section class="skills" id="skills">
-        <div class="main-container flex-column">
-            <h2>Skills</h2>
+        <div class="editorial-container">
+            <div class="section-indicator">04 // Core Systems</div>
+            <h2 class="editorial-title">Technical Capability Matrix</h2>
             
-            <div class="skill-category glass-card">
-                <h3>Programming Languages</h3>
-                
-                <div class="skill-subcategory">
-                    <h4>Core Languages</h4>
-                    <div class="icons">
-                        <div><i class="fa-solid fa-code"></i><label>C#</label></div>
-                        <div><i class="fab fa-java"></i><label>Java</label></div>
-                        <div><i class="fab fa-python"></i><label>Python</label></div>
-                    </div>
+            <div class="matrix-grid">
+                <div class="matrix-column">
+                    <h3>Architecture & Engineering</h3>
+                    <ul>
+                        <li>C# <span>/ Advanced Object Orientation</span></li>
+                        <li>Java <span>/ Systems Architecture</span></li>
+                        <li>Python <span>/ Data Automation & Testing</span></li>
+                        <li>Swift <span>/ Ecosystem Frameworks</span></li>
+                        <li>Web Technologies <span>/ JavaScript, HTML5, CSS3</span></li>
+                    </ul>
                 </div>
-
-                <div class="skill-subcategory">
-                    <h4>Web & Mobile</h4>
-                    <div class="icons">
-                        <div><i class="fab fa-html5"></i><label>HTML5</label></div>
-                        <div><i class="fab fa-css3-alt"></i><label>CSS3</label></div>
-                        <div><i class="fab fa-js"></i><label>JavaScript</label></div>
-                        <div><i class="fab fa-swift"></i><label>Swift</label></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skill-category glass-card">
-                <h3>Development & Design Tools</h3>
-                
-                <div class="skill-subcategory">
-                    <h4>Game Tech & Automation</h4>
-                    <div class="icons">
-                        <div><i class="fab fa-unity"></i><label>Unity</label></div>
-                        <div><i class="fa-solid fa-robot"></i><label>UiPath</label></div>
-                    </div>
-                </div>
-
-                <div class="skill-subcategory">
-                    <h4>3D Modeling & Design</h4>
-                    <div class="icons">
-                        <div><i class="fa-solid fa-cube"></i><label>Blender</label></div>
-                        <div><i class="fa-solid fa-bezier-curve"></i><label>Maya</label></div>
-                        <div><i class="fa-solid fa-gem"></i><label>Rhino</label></div>
-                    </div>
+                <div class="matrix-column">
+                    <h3>3D Development & Real-Time</h3>
+                    <ul>
+                        <li>Unity Engine <span>/ Gameplay Programming & Netcode</span></li>
+                        <li>UiPath <span>/ RPA Automation Architectures</span></li>
+                        <li>Blender <span>/ Mesh Engineering & Modeling</span></li>
+                        <li>Autodesk Maya <span>/ Rigid Rigging Solutions</span></li>
+                        <li>Rhino 3D <span>/ Computational Surface Design</span></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- 05. Contact Section -->
     <footer class="contact-me" id="contact">
-        <div class="glass-card contact-panel">
-            <h2>Contact Me</h2>
-            <p>
-                <i class="fas fa-envelope"></i> Janalauer2003@gmail.com<br>
-                <i class="fas fa-phone"></i> +49 176 43265632
-            </p>
+        <div class="editorial-container text-center">
+            <div class="section-indicator center">05 // Dialogue</div>
+            <h1 class="contact-huge-title">Let's build something beautiful.</h1>
+            <p class="premium-mail-anchor">Available for innovative positions. <a href="mailto:janalauer2003@gmail.com">janalauer2003@gmail.com</a></p>
+            <div class="footer-bottom-meta">
+                <span>&copy; 2026 Jana Meissner</span>
+                <span>Designed with Precision</span>
+            </div>
         </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

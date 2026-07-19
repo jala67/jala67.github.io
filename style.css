@@ -1,21 +1,17 @@
 ﻿:root {
-    --bg-main: #060913;          /* Tiefes Cyber-Dunkelblau */
-    
-    /* iOS Milchglas */
-    --glass-bg: rgba(15, 23, 42, 0.4); 
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-shadow: rgba(0, 0, 0, 0.5);
-    
-    --accent: #06b6d4;           /* Cyan */
-    --white: #ffffff;
-    --text-main: #f8fafc;        /* Weiß */
-    --text-muted: #94a3b8;       /* Slate Grau */
+    --bg-main: #05060a;          /* Extrem edles, fast reines Samtschwarz */
+    --accent: #00e5ff;           /* Neon Cyan (Sehr dünn verwendet für Nadelstiche) */
+    --text-main: #e2e8f0;        /* Off-White */
+    --text-muted: #64748b;       /* Dezentes Grau */
+    --font-serif: 'Cinzel', serif;
+    --font-sans: 'Inter', sans-serif;
+    --border-thin: rgba(255, 255, 255, 0.05);
 }
 
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: var(--font-sans);
     box-sizing: border-box;
 }
 
@@ -27,54 +23,10 @@ body {
     background-color: var(--bg-main);
     color: var(--text-main);
     overflow-x: hidden;
-    position: relative;
-}
-
-/* Base Typography */
-p {
-    color: var(--text-muted);
-    font-size: 15px;
-    line-height: 26px;
-}
-
-h1 {
-    color: var(--white);
-    font-size: 64px;
-    font-weight: 700;
-    letter-spacing: -1.5px;
-    margin: 10px 0;
-}
-
-h2 {
-    font-size: 36px;
-    color: var(--white);
-    font-weight: 700;
-    letter-spacing: -0.5px;
-}
-
-h3 {
-    color: var(--text-muted);
-    font-size: 22px;
-    font-weight: 300;
-    margin-bottom: 40px;
-}
-
-h4 {
-    color: var(--accent);
-    letter-spacing: 3px;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-h5 {
-    color: var(--white);
-    font-size: 19px;
-    font-weight: 600;
 }
 
 /* ==========================================================================
-   Procedural Canvas Background (Echter Liquid Blob Layer)
+   INTERACTIVE CANVAS BACKGROUND
    ========================================================================== */
 .canvas-bg-container {
     position: fixed;
@@ -82,759 +34,530 @@ h5 {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 0;
+    z-index: 1;
     pointer-events: none;
-    overflow: hidden;
 }
 
-#liquid-glass-blob {
-    display: block;
+#interactive-vector-net {
     width: 100%;
     height: 100%;
+    opacity: 0.45; /* Hält die Linien subtil im Hintergrund */
 }
 
 /* ==========================================================================
-   The Liquid Glass Blueprint (iOS-Style Cards)
+   MINIMALIST EDITORIAL NAV
    ========================================================================== */
-.glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(30px) saturate(160%);
-    -webkit-backdrop-filter: blur(30px) saturate(160%);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 15px 35px 0 var(--glass-shadow);
-    border-radius: 20px;
+.editorial-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 25px 6%;
+    background: linear-gradient(to bottom, #05060a 40%, rgba(5,6,10,0));
+    transition: padding 0.3s ease;
 }
 
-/* Containers */
-.main-container {
-    max-width: 1100px;
+.editorial-header.scrolled {
+    padding: 15px 6%;
+    background: rgba(5, 6, 10, 0.95);
+    border-bottom: 1px solid var(--border-thin);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.nav-container {
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 50px;
-    width: 100%;
-    position: relative;
-    z-index: 2;
-}
-
-.flex-column {
-    flex-direction: column;
-    align-items: center;
-}
-
-/* ==========================================================================
-   Hero Content & Navigation Fixes
-   ========================================================================== */
-.hero {
-    height: 100vh;
-    width: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Verteilt Nav oben und Content im Center */
-    z-index: 2;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 35px 8%;
-    position: relative;
-    z-index: 2;
 }
 
 .logo {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 600;
     color: var(--white);
-    font-size: 26px;
-    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: -1px;
 }
 
-nav ul li {
-    display: inline-block;
-    padding: 0 20px;
-}
+.logo span { color: var(--accent); }
 
-nav ul li a {
+.nav-links li { display: inline-block; padding: 0 16px; }
+
+.nav-links li a {
     color: var(--text-muted);
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-
-nav ul li a:hover {
-    color: var(--white);
-}
-
-/* Sichtbare Umrandung für den Curriculum Vitae Button */
-.btn {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    border: 1.5px solid rgba(6, 182, 212, 0.4); /* Sichtbare, cyan-glasige Umrandung */
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 600;
-    padding: 10px 24px;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background: var(--white);
-    color: var(--bg-main);
-    border-color: var(--white);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-}
-
-.content {
-    margin: auto 0; /* Perfekte vertikale Zentrierung */
-    padding: 0 8%;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Zentriert die Schriften mathematisch genau im Raum */
-    position: relative;
-    z-index: 2;
-}
-
-.mail-button {
-    display: inline-block;
-    padding: 14px 35px;
-    background: var(--white);
-    color: var(--bg-main);
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 25px;
-    transition: all 0.3s;
-}
-
-.mail-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
-}
-
-/* ==========================================================================
-   About Section Fine-Tuning
-   ========================================================================== */
-.about {
-    width: 100%;
-    padding: 120px 8% 180px 8%;
-    position: relative;
-    z-index: 2;
-}
-
-.about-text {
-    flex: 2;
-    padding: 40px;
-}
-
-.about-text h2 {
-    margin-bottom: 12px; /* Schafft Platz zur folgenden Zeile */
-}
-
-.about-text h5 {
-    color: var(--accent);
-    font-size: 15px;
-    margin-top: 5px;      /* Gibt der Zeile Luft nach oben */
-    margin-bottom: 25px;  /* Erhöhter Abstand zum Fließtext darunter */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.about-text p {
-    margin-bottom: 35px;
-}
-
-.about-facts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-}
-
-.fact-item {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    padding: 16px;
-    border-radius: 12px;
-}
-
-.fact-item strong {
-    display: block;
-    color: var(--white);
-    font-size: 11px;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.fact-item span {
-    color: var(--text-muted);
     font-size: 13px;
-    line-height: 18px;
+    font-weight: 400;
+    transition: color 0.3s;
 }
 
-.about-profile-wrapper {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.profile-glass-frame {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    padding: 12px;
-    border-radius: 50%;
-    border: 1px solid var(--glass-border);
-}
-
-.about img {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 50%;
-    display: block;
-}
-
-/* ==========================================================================
-   Work Experience Section Updates (Aligned & Color Logos)
-   ========================================================================= */
-.work-experience {
-    width: 100%;
-    padding: 100px 8% 140px 8%;
-    position: relative;
-    z-index: 2;
-}
-
-.work-experience h2 {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.experience-item-wrapper {
-    background: var(--glass-bg);
-    backdrop-filter: blur(30px) saturate(160%);
-    -webkit-backdrop-filter: blur(30px) saturate(160%);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 15px 35px 0 var(--glass-shadow);
-    border-radius: 20px;
-    padding: 35px 40px;
-    margin: 0 auto 25px auto;
-    max-width: 900px;
-    position: relative;
-    z-index: 2;
-    transition: transform 0.3s, border-color 0.3s;
-}
-
-.experience-item-wrapper:hover {
-    transform: translateY(-3px);
-    border-color: rgba(255, 255, 255, 0.18);
-}
-
-.experience-item {
-    display: flex;
-    align-items: center;
-    gap: 40px; /* Einheitlicher Abstand zwischen Logo und Text */
-}
-
-/* Feste Breite für die Logo-Spalte, damit alle Texte links perfekt bündig starten */
-.work-experience .logo {
-    flex: 0 0 120px; /* Exakt 120px breit, schrumpft nicht, wächst nicht */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Logos in Originalfarbe, gut sichtbar und harmonisch skaliert */
-.work-experience .logo img {
-    max-width: 100%;
-    max-height: 55px; /* Etwas größer für bessere Erkennbarkeit */
-    object-fit: contain;
-    filter: none;
-    opacity: 0.95; /* Fast volle Deckkraft für klare Sichtbarkeit */
-}
-
-.experience-details {
-    flex: 1; /* Nutzt den gesamten restlichen Platz */
-}
-
-.experience-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-.experience-details h5 {
-    color: var(--white);
-    font-size: 19px;
-    font-weight: 600;
-}
-
-.experience-details h6 {
+.nav-links li a span {
+    font-size: 10px;
     color: var(--accent);
-    font-size: 14px;
-    font-weight: 500;
+    margin-right: 2px;
+    opacity: 0.6;
 }
+
+.nav-links li a:hover { color: var(--text-main); }
+
+.cv-link-premium {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 4px;
+    transition: opacity 0.3s;
+}
+
+.cv-link-premium:hover { opacity: 0.7; }
 
 /* ==========================================================================
-   Projects Section (With Seamles Hardware Morphing)
+   EDITORIAL SECTION INDICATORS
    ========================================================================== */
-.projects {
-    width: 100%;
-    padding: 100px 8%;
-    position: relative;
-    z-index: 2;
+.section-indicator {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 30px;
+    opacity: 0.7;
 }
+.section-indicator.center { text-align: center; }
+.section-indicator.pad-left { padding-left: 6%; }
 
-.projects .title h2 {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+.editorial-container {
     max-width: 1100px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
 }
 
-.project-card {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background: var(--glass-bg);
-    backdrop-filter: blur(30px) saturate(160%);
-    -webkit-backdrop-filter: blur(30px) saturate(160%);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 15px 35px 0 var(--glass-shadow);
-    border-radius: 20px;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, background-color 0.5s ease;
-}
-
-.card-teaser {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    flex-grow: 1;
-}
-
-.project-icon {
-    font-size: 36px !important;
-    color: var(--white);
-    opacity: 0.9;
-    margin-bottom: 18px;
-    display: block;
-}
-
-.project-media-preview {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin: 15px 0;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.project-card p.teaser-text {
-    font-size: 14px;
-    line-height: 22px;
-    margin-bottom: 15px;
-}
-
-.tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 25px;
-}
-
-.tag {
-    background: rgba(255, 255, 255, 0.04);
-    color: var(--text-main);
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 11px;
-    font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.card-details {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.5s ease 0.1s;
-}
-
 /* ==========================================================================
-   Full Width Gallery & Layout Extensions for Thesis
+   HERO (Minimalist Bold Elegance)
    ========================================================================== */
-
-.project-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin: 20px 0 35px 0;
-    width: 100%;
-}
-
-.project-gallery img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-.details-content-full {
-    width: 100%;
-    margin-top: 20px;
-}
-
-.details-content-full .thesis-meta {
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 15px;
-    font-size: 14px;
-}
-
-.details-content-full .project-description {
-    font-size: 15px;
-    line-height: 26px;
-    margin-bottom: 35px;
-    color: var(--text-muted);
-    max-width: 950px;
-}
-
-@media (max-width: 850px) {
-    .project-gallery {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    .project-gallery img {
-        height: 160px;
-    }
-}
-
-/* ==========================================================================
-   CSS-GRID FOCUS STATES
-   ========================================================================== */
-.projects-grid.grid-single-focus {
-    grid-template-columns: 1fr;
-}
-
-.project-card.expanded {
-    background: rgba(15, 23, 42, 0.45) !important;
-    backdrop-filter: blur(30px) saturate(160%) !important;
-    -webkit-backdrop-filter: blur(30px) saturate(160%) !important;
-    
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    padding: 45px;
-    z-index: 5;
-    animation: smoothPop 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes smoothPop {
-    0% { transform: scale(0.95); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-.project-card.expanded .card-teaser {
-    display: none !important;
-}
-
-.project-card.expanded .card-details {
-    display: block;
-    opacity: 1;
-}
-
-.project-card.expanded h2 {
-    font-size: 32px;
-    margin-bottom: 25px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 12px;
-}
-
-/* Inaktive Karten blenden jetzt deutlich softer und verzögert aus */
-.project-card.hidden {
-    opacity: 0;
-    transform: scale(0.93) translateY(40px);
-    pointer-events: none;
-    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    display: none;
-}
-
-/* Knallharte Fixierung für den Button am unteren Kartenrand */
-.project-card .show-more-btn {
-    margin-top: auto; /* Schiebt den Button magisch ganz nach unten, egal wie lang der Text ist */
-    align-self: flex-start;
-    background: transparent;
-    color: var(--white);
-    border: 1.5px solid rgba(255, 255, 255, 0.25);
-    font-weight: 600;
-    padding: 9px 20px;
-    border-radius: 20px;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.project-card .show-more-btn:hover {
-    background: var(--white);
-    color: var(--bg-main);
-    border-color: var(--white);
-}
-
-.project-media-expanded {
-    flex: 0 0 45%;
-    max-width: 450px;
-    height: auto;
-    max-height: 320px;
-    object-fit: cover;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-.details-content {
-    flex: 1;
-}
-
-.details-content p {
-    font-size: 15px;
-    line-height: 26px;
-    margin-bottom: 25px;
-    color: var(--text-main);
-}
-
-.features-title {
-    color: var(--white);
-    font-size: 16px;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.features-list {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-bottom: 30px;
-    color: var(--text-muted);
-}
-
-.features-list li {
-    padding: 3px 0;
-    font-size: 14px;
-}
-
-/* Neuer Button-Look: Standard hohl, ausgefüllt bei Hover */
-.project-card .show-more-btn {
-    align-self: flex-start;
-    background: transparent;
-    color: var(--white);
-    border: 1.5px solid rgba(255, 255, 255, 0.25);
-    font-weight: 600;
-    padding: 9px 20px;
-    border-radius: 20px;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.project-card .show-more-btn:hover {
-    background: var(--white);
-    color: var(--bg-main);
-    border-color: var(--white);
-}
-
-.project-card .action-btn {
-    display: inline-block;
-    background: var(--white);
-    color: var(--bg-main);
-    text-decoration: none;
-    font-weight: 600;
-    padding: 10px 22px;
-    border-radius: 20px;
-    font-size: 13px;
-    transition: 0.2s;
-}
-
-.project-card .action-btn:hover {
-    background: transparent;
-    color: var(--white);
-    border: 1px solid var(--white);
-}
-
-.back-btn {
-    background: transparent;
-    border: none;
-    color: var(--accent);
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-bottom: 20px;
+.hero {
+    height: 100vh;
     display: flex;
     align-items: center;
-    gap: 8px;
-    transition: color 0.2s;
-}
-
-.back-btn:hover {
-    color: var(--white);
-}
-
-/* ==========================================================================
-   Skills Section (With Subcategories & Clean Layout)
-   ========================================================================== */
-.skills {
-    padding: 60px 8% 80px 8%; 
+    padding: 0 8%;
     position: relative;
     z-index: 2;
 }
 
-.skills h2 {
-    margin-bottom: 35px; /* Kompakter, sauberer Abstand zum ersten Kärtchen */
-    text-align: center;
+.hero-tag {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--text-muted);
 }
 
-.skill-category {
-    width: 100%;
-    max-width: 850px;
-    margin: 0 auto 10px auto; /* Zentriert die Kärtchen und gibt ihnen 25px Abstand zueinander */
-    padding: 30px 40px;
+.hero-main-title {
+    font-family: var(--font-serif);
+    font-size: 84px;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin: 15px 0;
+}
+
+.hero-line {
+    width: 60px;
+    height: 1px;
+    background: var(--accent);
+    margin-bottom: 25px;
+}
+
+.hero-center h3 {
+    font-size: 20px;
+    font-weight: 200;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-bottom: 45px;
+}
+
+.hero-center h3 span { font-family: var(--font-serif); color: var(--white); }
+
+.editorial-cta {
+    display: inline-block;
+    padding: 12px 35px;
+    border: 1px solid var(--text-main);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.editorial-cta:hover {
+    background: var(--white);
+    color: var(--bg-main);
+}
+
+/* ==========================================================================
+   01. ABOUT ME (Asymmetric Typo Grid)
+   ========================================================================== */
+.about {
+    padding: 160px 6%;
+    border-top: 1px solid var(--border-thin);
+}
+
+.about-grid-premium {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+.about-meta-text { flex: 0 0 55%; }
+
+.about-meta-text h2 {
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1.4;
+    letter-spacing: -0.5px;
+    margin-bottom: 30px;
+}
+
+.about-meta-text p {
+    font-size: 15px;
+    line-height: 28px;
+    color: var(--text-muted);
+}
+
+.about-stats-list {
+    flex: 0 0 35%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Verhindert, dass Flexbox den Inhalt künstlich streckt */
-}
-
-/* Die Haupt-Kategorie-Überschrift */
-.skill-category h3 {
-    color: var(--white);
-    font-size: 18px; /* Zurückgesetzt auf die kompakte Größe */
-    margin-bottom: 25px;
-    border-bottom: 1px solid var(--glass-border);
-    padding-bottom: 8px;
-    font-weight: 300; /* Dünneres, eleganteres Schriftgewicht */
-    letter-spacing: 0px;
-    width: 100%;
-}
-
-/* Präzise Kontrolle über den Abstand ZWISCHEN den Unterkategorien */
-.skill-subcategory {
-    margin-bottom: 20px; /* Einheitlicher, sauberer Abstand */
-    width: 100%;
-}
-
-.skill-subcategory:last-child {
-    margin-bottom: 0; /* Verhindert doppelten Abstand am Ende der Karte */
-}
-
-/* Diskrete Überschrift für die Untergruppen */
-.skill-subcategory h4 {
-    color: var(--accent);
-    font-size: 12px; /* Etwas dezenter */
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 12px;
-    font-weight: 600; /* Feinerer Akzent-Titel */
-}
-
-.skill-category .icons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: flex-start; /* Icons linksbündig anordnen statt im Raum zu verteilen */
-    width: 100%;
-}
-
-.skill-category .icons div {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 10px 18px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: border-color 0.25s ease, background 0.25s ease;
-}
-
-.skill-category .icons div:hover {
-    border-color: rgba(6, 182, 212, 0.3);
-    background: rgba(255, 255, 255, 0.06);
-}
-
-.skill-category .icons i {
-    color: var(--white);
-    opacity: 0.85;
-    font-size: 18px;
-}
-
-.skill-category .icons label {
-    font-weight: 400;
-    font-size: 13px;
-    color: var(--text-main);
-    cursor: default;
-}
-
-/* Contact Section */
-.contact-me {
-    width: 100%;
-    padding: 100px 8%;
-    display: flex;
     justify-content: center;
 }
 
-.contact-panel {
-    max-width: 600px;
-    width: 100%;
-    padding: 50px;
-    text-align: center;
+.stat-row {
+    border-bottom: 1px solid var(--border-thin);
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.contact-me h2 {
+.stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+.stat-val {
+    font-size: 13px;
+    text-align: right;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   02. WORK EXPERIENCE (Clean Editorial List)
+   ========================================================================== */
+.work-experience {
+    padding: 160px 6%;
+    background: rgba(255,255,255,0.01);
+    border-top: 1px solid var(--border-thin);
+}
+
+.editorial-title {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 60px;
+}
+
+.editorial-experience-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.exp-block {
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border-thin);
+}
+
+.exp-block:last-child { border-bottom: none; }
+
+.exp-year {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    color: var(--accent);
+}
+
+.exp-company h4 {
+    font-size: 18px;
+    color: var(--white);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.exp-company span {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.exp-desc p {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+/* ==========================================================================
+   03. MY PROJECTS (Satisfying Premium Accordion Slider)
+   ========================================================================== */
+.projects {
+    padding: 160px 0;
+    border-top: 1px solid var(--border-thin);
+    position: relative;
+    z-index: 2;
+}
+
+.accordion-slider-container {
+    display: flex;
+    width: 100%;
+    height: 520px;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-thin);
+    border-bottom: 1px solid var(--border-thin);
+    overflow: hidden;
+}
+
+/* Jedes einzelne Projektpanel */
+.accordion-panel {
+    flex: 0 0 80px; /* Standardmäßig extrem schmal komprimiert */
+    height: 100%;
+    border-right: 1px solid var(--border-thin);
+    background: #05060a;
+    display: flex;
+    cursor: pointer;
+    overflow: hidden;
+    transition: flex 0.7s cubic-bezier(0.16, 1, 0.3, 1), background 0.5s ease;
+}
+
+/* Vertikale Statuszeile für geschlossene Panels */
+.panel-header-vertical {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 0;
+    flex-shrink: 0;
+}
+
+.panel-num {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    color: var(--text-muted);
+}
+
+.panel-header-vertical h3 {
+    writing-mode: vertical-rl; /* Dreht die Schrift edel nach oben */
+    transform: rotate(180deg);
+    white-space: nowrap;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+/* Der geheime Inhalt, der sich weich auseinanderzieht */
+.panel-body-content {
+    flex-grow: 1;
+    opacity: 0;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+/* Wenn das Panel aktiv/gehovert ist -> Dehnt es sich massiv aus */
+.accordion-panel.active {
+    flex-grow: 1; /* Nimmt den restlichen Raum ein */
+    background: rgba(15, 23, 42, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.accordion-panel.active .panel-body-content {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.accordion-panel.active .panel-header-vertical h3 {
+    color: var(--accent); /* Nadelstich-Farbe bei Aktivierung */
+}
+
+/* Inneres Grid des geöffneten Panels */
+.panel-inner-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    width: 100%;
+    align-items: center;
+}
+
+.panel-text h2 {
+    font-family: var(--font-serif);
+    font-size: 32px;
     margin-bottom: 20px;
 }
 
-.contact-me p {
-    font-size: 16px;
-    line-height: 32px;
-    color: var(--text-main);
+.panel-text p {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 30px;
 }
 
-.contact-me i {
+.project-tags-premium {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 35px;
+}
+
+.project-tags-premium span {
+    font-size: 11px;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 3px 12px;
+    border-radius: 12px;
+    color: var(--text-muted);
+}
+
+.project-link-clean {
+    font-size: 13px;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+}
+.project-link-clean i { font-size: 11px; margin-left: 5px; transition: transform 0.2s; }
+.project-link-clean:hover i { transform: translateX(4px); }
+
+.panel-image img, .panel-image video {
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Spezifisch für das 3er-Bild-Layout deiner Thesis */
+.panel-image-triple {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    width: 100%;
+}
+.panel-image-triple img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* ==========================================================================
+   04. SKILLS SECTION (Matrix Design)
+   ========================================================================== */
+.skills {
+    padding: 160px 6%;
+    border-top: 1px solid var(--border-thin);
+}
+
+.matrix-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 20px;
+}
+
+.matrix-column h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     color: var(--accent);
-    margin-right: 8px;
+    margin-bottom: 30px;
 }
 
-/* Responsiveness */
-@media (max-width: 850px) {
-    .main-container {
-        flex-direction: column-reverse;
-        align-items: center;
-        gap: 40px;
-    }
+.matrix-column ul { list-style: none; }
 
-    .skills .main-container {
-        flex-direction: column;
-    }
+.matrix-column ul li {
+    font-size: 18px;
+    color: var(--white);
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border-thin);
+    font-weight: 300;
+}
 
-    .about-text {
-        width: 100%;
-    }
-    nav ul {
-        display: none;
-    }
-    .experience-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-    .experience-header {
-        flex-direction: column;
-    }
+.matrix-column ul li span {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-left: 8px;
+}
+
+/* ==========================================================================
+   05. CONTACT & FOOTER (Editorial Monumental Layout)
+   ========================================================================== */
+.contact-me {
+    padding: 180px 6% 80px 6%;
+    border-top: 1px solid var(--border-thin);
+    background: rgba(255,255,255,0.005);
+}
+
+.contact-huge-title {
+    font-family: var(--font-serif);
+    font-size: 54px;
+    font-weight: 400;
+    letter-spacing: -2px;
+    margin: 40px 0 20px 0;
+}
+
+.premium-mail-anchor {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-bottom: 100px;
+}
+
+.premium-mail-anchor a {
+    color: var(--white);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+}
+
+.footer-bottom-meta {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-thin);
+    padding-top: 30px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.text-center { text-align: center; }
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+    .nav-links, .cv-link-premium { display: none; }
+    .about-grid-premium, .matrix-grid, .exp-block { grid-template-columns: 1fr; display: flex; flex-direction: column; gap: 30px; }
+    .about-meta-text, .about-stats-list { flex: none; width: 100%; }
+    .accordion-slider-container { display: flex; flex-direction: column; height: auto; }
+    .accordion-panel { flex: none; width: 100%; height: auto; flex-direction: column; }
+    .panel-header-vertical { width: 100%; height: 60px; flex-direction: row; padding: 0 25px; }
+    .panel-header-vertical h3 { writing-mode: horizontal-tb; transform: none; }
+    .panel-body-content { padding: 25px; display: none; }
+    .accordion-panel.active .panel-body-content { display: block; }
+    .panel-inner-grid { grid-template-columns: 1fr; gap: 20px; }
+    .panel-image-triple { grid-template-columns: 1fr; }
+    .hero-main-title { font-size: 52px; }
+    .contact-huge-title { font-size: 36px; }
 }
